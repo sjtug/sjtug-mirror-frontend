@@ -1,0 +1,45 @@
+.sync-finished
+{
+    min-width:3rem;
+    padding:0 6px;
+    text-align:center;
+    font-size:1rem;
+    line-height:inherit;
+    color:#757575;
+    position:relative;
+    right:15px;
+    box-sizing:border-box;
+}
+.sync-working
+{
+    color:#fff;
+    background-color:#26a69a;
+    border-radius:5px;
+    position: relative;
+    padding: 5px;
+}
+.sync-failed
+{
+    color:#fff;
+    background-color:#e65100;
+    border-radius:5px;
+    position: relative;
+    padding: 5px;
+}
+.tab a
+{
+    color: #039be5 !important;
+}
+.body-container
+{
+    margin-top: 2em;
+}
+i.fa-question-circle
+{
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+h2.news-title
+{
+    font-size: 18px;
+}

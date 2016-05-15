@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>SJTUG Mirror</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/tooltipster.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.3/iframeResizer.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js"></script>
+        <script type="text/javascript" src="data.js"></script>
+        <script type="text/javascript" src="logic.js"></script>
+    </head>
+    <body>
+
+        <nav>
+            <div class="light-blue nav-wrapper">
+                <div class="container">
+                    <a href="#" class="brand-logo center" style="height: 100%"><img src="https://raw.githubusercontent.com/sjtug/sjtug.github.io/master/img/Rocket120.png" alt="logo" style="vertical-align: middle; max-height: 90%; margin: auto"></img> SJTUG Mirror</a>
+            </div>
+            </div>
+        </nav>
+
+        <div class="body-container container">
+
+            <div class="row">
+                <div class="col s3">
+                    <h2 class="news-title">近期新闻</h2>
+                    <ul class="collapsible" id="news" data-collapsible="accordion">
+                    </ul>
+                </div>
+                <div class="col s9">
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs blue-text">
+                                <li class="tab col s6"><a href="#list">镜像列表</a></li>
+                                <li class="tab col s6"><a href="#status">服务器状态</a></li>
+                            </ul>
+                        </div>
+
+                        <div id="list" class="col s12">
+
+                            <table class="highlight centered">
+                                <thead>
+                                    <tr>
+                                        <th data-field="name">镜像名称</th>
+                                        <th data-field="status">状态</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="sync-status"></tbody>
+                            </table>
+                        </div>
+
+                        <div id="status" class="col s12">
+                            <iframe frameborder="0" scrolling="yes" seamless="true" id="status-iframe" src="https://mirrors.sjtug.org/status.html" style="width:100%; min-height: 2000px"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer light-blue darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">SJTUG软件源镜像</h5>
+                        <p class="grey-text text-lighten-4">Supported by SJTU Net&Infomation Center</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">链接</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="http://sjtug.org">SJTUG主页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

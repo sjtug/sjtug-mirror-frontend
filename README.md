@@ -1,6 +1,8 @@
 #sjtug-mirror-frontend
 
-Simple static web frontend for tunasync
+Simple static web frontend for tunasync.
+
+Demo: https://mirrors.sjtug.org/beta/
 
 ## Usage
 Modify `logic.js` and set `tunasync_path`(URL of your `tunasync.json`),`dir_base`(URL of the root of your mirror site). It should just work.

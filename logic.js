@@ -2,7 +2,8 @@
 
     var config = {
         tunasync_path: "https://mirrors.sjtug.org/static/tunasync.json",
-        dir_base: "https://mirrors.sjtug.org" //no trailing slash
+        dir_base: "https://mirrors.sjtug.org", //no trailing slash
+        status_path: "https://mirrors.sjtug.org/status.html"
     };
 
     Object.size = function(obj) {
@@ -121,6 +122,9 @@
 
 
     $(function() { 
+        $("#status-tab").click(function() {
+            $("#status-iframe").attr("src", config.status_path);
+        });
         updateJS();
         setInterval(updateJS, 30000);
         fetchData();

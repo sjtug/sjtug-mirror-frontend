@@ -1,4 +1,4 @@
-var helpfiles = ["archlinux"];
+var helpfiles = ["archlinux","PuTTY"];
 var newsfiles = [
     {
         title: "新的软件源界面",

@@ -1,3 +1,4 @@
+// The following array contains some mirror names, navigate them with /{mirror_name}
 var helpfiles = ["archlinux","PuTTY","cygwin"];
 var newsfiles = [
     {

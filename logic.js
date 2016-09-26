@@ -65,7 +65,13 @@
             });
     }
 
+    var loadingHTML =
+        $("<div />").addClass("progress").append(
+            $("<div />").addClass("indeterminate")
+        );
+
     function updateJS() {
+        $("#sync-status").html(loadingHTML);
         $.getJSON(config.tunasync_path,
                   function(data) {
                       $("#sync-status").html(processJSON(data));

@@ -1,3 +1,7 @@
+body, button, input, select, textarea, h1 ,h2, h3, h4, h5, h6 { 
+	font-family: "Heiti SC", "Hiragino Sans GB", "STHeiti", "Source Han Sans CN", "WenQuanYi Zen Hei", "WenQuanYi Micro Hei", "微软雅黑", sans-serif;
+}
+
 .sync-finished
 {
     min-width:3rem;
@@ -33,6 +37,8 @@
 .body-container
 {
     margin-top: 2em;
+	/*margin-left: 4%;
+	 margin-right: 0%;*/
 }
 i.fa-question-circle
 {
@@ -43,3 +49,4 @@ h2.news-title
 {
     font-size: 18px;
 }
+

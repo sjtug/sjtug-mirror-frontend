@@ -48,6 +48,6 @@ h2.news-title
 {
     font-size: 18px;
 }
-.right {
-	float: right;
+.collapsible-header {
+	/* line-height: 150%; */
 }

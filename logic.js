@@ -83,10 +83,7 @@
         return $("<li />").append(
             $("<div />", {
                 "class": "collapsible-header"
-            }).addClass(isOpen ? "active" : "").text(title).append(
-                $("<div />", {
-                    "class": "right"
-                }).text(date))
+            }).addClass(isOpen ? "active" : "").html("<b>"+date+"</b> "+title)
         ).append(
             $("<div />", {
                 "class": "collapsible-body"

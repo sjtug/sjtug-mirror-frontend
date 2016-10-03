@@ -1,11 +1,17 @@
 import 'babel-polyfill';
 import $ from 'jquery';
 import Vue from 'vue';
+import x from './test1.vue';
 
-const txt = "hello world";
-console.log("hello world");
+console.log(x);
 
-const arr = [1,2,3];
+$('body');
+Vue.config({});
+
+const txt = 'hello world';
+console.log(txt);
+
+const arr = [1, 2, 3];
 for (const num of arr) {
     console.log(num);
 }

@@ -56,10 +56,19 @@
 
 	var _vue2 = _interopRequireDefault(_vue);
 
+	var _test = __webpack_require__(300);
+
+	var _test2 = _interopRequireDefault(_test);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var txt = "hello world";
-	console.log("hello world");
+	console.log(_test2.default);
+
+	(0, _jquery2.default)('body');
+	_vue2.default.config({});
+
+	var txt = 'hello world';
+	console.log(txt);
 
 	var arr = [1, 2, 3];
 	var _iteratorNormalCompletion = true;
@@ -23966,6 +23975,80 @@
 	module.exports = Vue$2;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)))
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+
+	/* styles */
+	__webpack_require__(301)
+
+	/* script */
+	__vue_exports__ = __webpack_require__(303)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(304)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+	__vue_options__._scopeId = "data-v-1"
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+/* 301 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 302 */,
+/* 303 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	    data: function data() {
+	        return { msg: 'hello world' };
+	    }
+	};
+
+/***/ },
+/* 304 */
+/***/ function(module, exports) {
+
+	module.exports={render:function (){with(this) {
+	  return _h('div', {
+	    staticClass: "ui"
+	  }, [" " + _s(msg) + " "])
+	}},staticRenderFns: []}
 
 /***/ }
 /******/ ]);

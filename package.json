@@ -1,0 +1,33 @@
+{
+  "name": "sjtug-mirror-frontend",
+  "version": "1.0.0",
+  "description": "Frontend of SJTUG Software Mirror",
+  "main": "main.js",
+  "dependencies": {
+    "vue": "^2.0.1",
+    "vue-materialize": "^0.4.1",
+    "vue-router": "^2.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjtug/sjtug-mirror-frontend.git"
+  },
+  "keywords": [
+    "mirrors",
+    "single-page",
+    "vue"
+  ],
+  "author": "SJTUG",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sjtug/sjtug-mirror-frontend/issues"
+  },
+  "homepage": "https://github.com/sjtug/sjtug-mirror-frontend#readme"
+}

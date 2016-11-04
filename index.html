@@ -4,6 +4,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="description" content="上海交通大学SJTUG软件源向华东地区提供高速、便捷的archlinux, cygwin, vim, putty镜像服务">
         <title>上海交通大学SJTUG软件源镜像</title>
+        <!--
 
         <link href="//cdn.bootcss.com/materialize/0.97.7/css/materialize.min.css" rel="stylesheet">
         <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -15,76 +16,17 @@
         <script src="//cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
         <script type="text/javascript" src="data.js"></script>
         <script type="text/javascript" src="logic.js"></script>
-		<!--Let browser know website is optimized for mobile-->
+
+        -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     </head>
     <body>
+<!--
+        -->
 
-        <nav>
-            <div class="light-blue nav-wrapper">
-                <div class="container">
-                    <a href="#" class="brand-logo center" style="height: 100%"><img src="https://raw.githubusercontent.com/sjtug/sjtug.github.io/master/img/Rocket120.png" alt="logo" style="vertical-align: middle; max-height: 80%; margin: auto"> SJTUG Mirror</a>
-            </div>
-            </div>
-        </nav>
-
-        <div class="body-container container">
-            <noscript>
-                你的浏览器似乎不支持Javascript。暂且你可以访问<a href="./data.js">数据源JS</a>来获取一些信息。
-            </noscript>
-            <div class="row">
-                <div class="col s12 l8">
-                    <div class="row">
-                        <div class="col s12">
-                            <ul class="tabs blue-text">
-                                <li class="tab col s6"><a href="#list">镜像列表</a></li>
-                                <li class="tab col s6"><a id="status-tab" href="#status">服务器状态</a></li>
-                            </ul>
-                        </div>
-
-                        <div id="list" class="col s12">
-
-                            <table class="highlight centered">
-                                <thead>
-                                    <tr>
-                                        <th data-field="name">镜像名称</th>
-                                        <th data-field="status">状态</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id="sync-status"></tbody>
-                            </table>
-                        </div>
-
-                        <div id="status" class="col s12">
-                            <iframe id="status-iframe" frameborder="0" scrolling="yes" seamless="true" style="width:100%; min-height: 2000px"></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 l4">
-                    <h2 class="news-title">近期新闻</h2>
-                    <ul class="collapsible" id="news" data-collapsible="accordion">
-                    </ul>
-                </div>
-            </div>
+        <div id="main">
+            <app></app>
         </div>
-
-        <footer class="page-footer light-blue darken-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">SJTUG软件源镜像</h5>
-                        <p class="grey-text text-lighten-4">Supported by SJTU Net&amp;Infomation Center</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">链接</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" href="http://sjtug.org">SJTUG主页</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
+        <script src="dists/app.bundle.js"></script>
     </body>
 </html>

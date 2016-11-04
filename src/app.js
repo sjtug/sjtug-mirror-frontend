@@ -1,17 +1,35 @@
 import 'babel-polyfill';
-import $ from 'jquery';
+import 'materialize-css/bin/materialize.css';
+import 'materialize-css/bin/materialize';
 import Vue from 'vue';
-import x from './test1.vue';
+import VueRouter from 'vue-router';
+import app from './app.vue';
+import main from './main.vue';
+import helps from './helps.vue';
+import news from './news.vue';
 
-console.log(x);
+Vue.use(VueRouter);
 
-$('body');
-Vue.config({});
+const routes = [
+    { path: '/',
+        component: main,
+    },
+    { path: '/news',
+        component: news,
+    },
+    { path: '/helps',
+        component: helps,
+    },
+];
 
-const txt = 'hello world';
-console.log(txt);
+const router = new VueRouter({
+    routes,
+});
 
-const arr = [1, 2, 3];
-for (const num of arr) {
-    console.log(num);
-}
+export default new Vue({
+    router,
+    components: {
+        app,
+    },
+}).$mount('#main');
+

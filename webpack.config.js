@@ -8,14 +8,19 @@ module.exports = {
     output: {
         path: './dists',
         filename: '[name].js',
+        publicPath: 'dists/',
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             include: /\.min\.js$/,
             minimize: true
-        }),
-        new ExtractTextPlugin("[name].css")
+        })
     ],
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
+    },
     module: {
         preLoaders: [
             {
@@ -35,20 +40,29 @@ module.exports = {
             loader: 'babel-loader'
         }, {
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue'
         },
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            },
             { test: /\.woff(\d*)\??(\d*)$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
             { test: /\.ttf\??(\d*)$/,    loader: "file-loader" },
             { test: /\.eot\??(\d*)$/,    loader: "file-loader" },
             { test: /\.svg\??(\d*)$/,    loader: "file-loader" },
-            { test: /\.scss$/, loader: "style!css!sass?sourceMap"}]
+            { test: /\.scss$/, loader: "style!css!sass?sourceMap"}],
+        postLoaders: [
+            { test: /vue-icons/, loader: "callback-loader"}
+        ]
     },
     vue: {
         loaders: {
-            js: 'babel',
-            css: ExtractTextPlugin.extract("css")
+            js: 'babel-loader',
+            css: 'style-loader!css-loader',
         }
-    }
+    },
+    callbackLoader:
+      require("vue-icons/icon-loader")(["fa-question-circle"])
 }
 
 if (process.env.NODE_ENV === 'production')

@@ -1,17 +1,24 @@
 <style scoped>
-body {
+.ui {
     background-color: blue;
 }
 </style>
 
 <template>
-    <div class="ui"> {{msg}} </div>
+    <div class="ui"> {{msg}} <icon name="material-add"></icon></div>
 </template>
 
 <script>
-export default {
-    data() {
-        return { msg: 'hello world' };
-    },
-};
+    const icon = require('vue-materialize/icon');
+    
+    export default {
+        components: {
+            icon,
+        },
+        props: {
+            msg: {
+                default: 'Default message missing',
+            },
+        },
+    };
 </script>

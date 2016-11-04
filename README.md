@@ -1,32 +1,16 @@
-#sjtug-mirror-frontend
+# sjtug-mirror-frontend
 
-Simple static web frontend for tunasync.
+Modern Frontend for software mirrors with backend as [lug](https://github.com/sjtug/lug) or [Tunasync](https://github.com/tuna/tunasync).
 
-Demo: https://mirrors.sjtug.org/beta/
+Built with Vue2.
 
-## Usage
-Modify `logic.js` and set `tunasync_path`(URL of your `tunasync.json`),`dir_base`(URL of the root of your mirror site) and `status_path`(URL of your server status page). It should just work.
-
-### Add help for repo
-1. Modify `data.js` and add your repo name to `helpfiles`.
-2. Edit `helps/{your_repo_name}.md` to provide help for this repo. This will be displayed as a tooltip.
-
-### Add news
-1. Modify `data.js` and add a new item including `title`, `filename` and `date` in `newsfiles`.
-2. Edit `news/{filename}.md` to provide the content of this news. News will be sorted by `date` in reverse order.
+## Development
+- First install `yarn` as package manager
+- then run `yarn install` under root directory.
+- Run `{YOUR_PATH}/webpack-dev-server`. This will start a web server at `localhost:8080`. You can visit it during development.
+- Write source files under `src/` directory
 
 ## License
-GPLv3
+GNUv3. See `LICENSE` for detail.
 
- > This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
 
- > This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- > You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.

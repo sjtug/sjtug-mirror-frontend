@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+- node
+env:
+- CXX=g++-5
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+  packages:
+  - g++-5
+install:
+- npm i -g yarn && yarn
+before_script:
+- webpack --progress
+- tar -czf dists.zip dists
+deploy:
+  provider: releases
+  api_key:
+    secure: idY8dcvWq3UkT3XdVLBQZA02UmZOeQlq9JpOG+U+jD5dHMZsoJu+Gae7iJl4+adD5JegyUF3TmNQtQyW1bvYB6hzQk+9HsQjWEigJJQUFdvjpsNISgKKxtyciUVHRLpqWSD4vUPvAFA+McOSX4bgtsGHEbZZlNPH/zBDXtkmdLkl5G6x+pMOd47SH7+tvkW6o6eufZ5ndDJYF3rgUNQDu/FjsCsKhzDYO0vzaIsa91B9OZmOU2BAJZrYvNOVijuRB/F13CiQej+f2B5seYcK/8zDW3McmuZsYLCR4FFHpskpa2mTojyaSu82fi7AfywNhPrvAZTkDj854Y+LO0gs/J9muGZMJ5Qc7YcIw+FvZCc2mL6EErJy1D3+feT5oKXOxxp6/WNE1MZF5f8upsEZEzMSYD+rmiz4CCfWTxY6rgGLYSBJFYnqaeVIxm07zhHZwkvQly8OJv0uMCNwInlXTfCiUotiV4RedtnV5hfUBfR6F6kTtglYuG+TIh3Y/9+X9YBFPBZXVTTAdqEL0NWmJjIn1NcyQcBzKNflZabPWMC5Hi10EkXjIDOkvnZnDGDYrXoHqCBjODhaTUyyUfPDyVZkEVLlXnvjsieg56SncVDI/xUHQ2WtEgIQjl7v3A7dyc4156B9IfRhjTsE62WdG9t/0LK5abbBrVHfEYVyp8o=
+  file: dists.zip
+  on:
+    repo: sjtug/sjtug-mirror-frontend
+    branch: vue2
+    tags: true

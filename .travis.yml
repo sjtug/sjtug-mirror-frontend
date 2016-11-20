@@ -9,11 +9,12 @@ addons:
     - ubuntu-toolchain-r-test
   packages:
   - g++-5
+  - zip
 install:
 - npm i -g yarn && yarn
 before_script:
 - webpack --progress
-- tar -czf dists.zip dists
+- zip -r dists.zip dists
 deploy:
   provider: releases
   api_key:

@@ -14,7 +14,7 @@ install:
 - npm i -g yarn && yarn
 before_script:
 - webpack --progress
-- zip -r dists.zip dists
+- npm run release-pack
 deploy:
   provider: releases
   api_key:

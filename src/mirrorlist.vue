@@ -10,22 +10,31 @@
                 <thead>
                     <tr>
                         <th data-field="name">镜像名称</th>
-                        <th data-field="status">状态</th>
+                        <th data-field="last-sync">更新时间</th>
                     </tr>
                 </thead>
 
                 <tbody id="sync-status">
-                    <tr>
+                    <tr v-for="repo in repos">
                         <td>
-                            <a class="tooltip tooltipstered" href="https://mirrors.sjtug.org/PuTTY">PuTTY</a> 
+                            <a v-bind:href="mirror_baseurl + repo.name">{{repo.display_name}}</a>
                         </td>
                         <td>
-                            <span class="sync-finished">Last Sync: 2016-10-09 13:14:33 
+                            {{repo.last_sync}}
+                            <span v-bind:class="repo.status_class">
+                                {{repo.status}}
                             </span>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class="col s12">
+            <h5>说明</h5>
+            <ul>
+                <li>所有更新时间均为UTC +0。</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -33,15 +42,7 @@
 <style scoped>
 .sync-finished
 {
-    min-width:3rem;
-    padding:0 6px;
-    text-align:center;
-    font-size:1rem;
-    line-height:inherit;
-    color:#757575;
-    position:relative;
-    right:15px;
-    box-sizing:border-box;
+    visibility: hidden;
 }
 .sync-working
 {
@@ -67,14 +68,15 @@ i.svg
 }
 </style>
 <script>
-import 'materialize-css/bin/materialize.css';
-import tooltip from 'vue-materialize/tooltip';
-
-console.log(tooltip);
+import config from './config';
+import state from './state';
 
 export default {
-    components: {
-        tooltip,
+    data() {
+        return {
+            mirror_baseurl: config.mirrorBaseUrl,
+            repos: state.mirrorList,
+        };
     },
 };
 </script>

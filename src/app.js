@@ -7,6 +7,7 @@ import app from './app.vue';
 import main from './main.vue';
 import helps from './helps.vue';
 import news from './news.vue';
+import update from './update';
 
 Vue.use(VueRouter);
 
@@ -33,3 +34,4 @@ export default new Vue({
     },
 }).$mount('#main');
 
+update.start();

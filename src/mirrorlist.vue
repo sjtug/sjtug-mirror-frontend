@@ -68,62 +68,15 @@ i.svg
 }
 </style>
 <script>
-
-const config = {
-    status_url: 'http://localhost:7001/lug/v1/manager',
-    update_interval: 30000,
-};
+import config from './config';
+import state from './state';
 
 export default {
     data() {
         return {
-            mirror_baseurl: 'http://localhost:8000/', // don't miss the terminating slash
-            repos: this.repos,
+            mirror_baseurl: config.mirrorBaseUrl,
+            repos: state.mirrorList,
         };
-    },
-    repos: {},
-    created() {
-        this.updateRepos();
-    },
-    methods: {
-        updateRepos() {
-            const fetched = fetch(config.status_url).then(response => response.json());
-            fetched.catch((error) => {
-                console.log(error.message);
-            });
-            fetched.then((j) => {
-                this.repos = [];
-                const o = Object.keys(j.WorkerStatus);
-                o.forEach((worker) => {
-                    const info = j.WorkerStatus[worker];
-                    const failed = !info.Result;
-                    const syncing = !failed && !info.Idle;
-                    let statusClass = '';
-                    let status = '';
-                    if (failed) {
-                        statusClass = 'sync-failed';
-                        status = 'Failed';
-                    } else if (syncing) {
-                        statusClass = 'sync-working';
-                        status = 'Syncing';
-                    } else {
-                        statusClass = 'sync-finished';
-                        status = 'Idle'; // Hidden text
-                    }
-                    // prettify the date string
-                    const isoDate = new Date(info.LastFinished).toISOString();
-                    const lastSync = `${isoDate.slice(0, 10)} ${isoDate.slice(11, 16)}`;
-                    this.repos.push({
-                        name: worker,
-                        display_name: worker,
-                        last_sync: lastSync,
-                        status_class: statusClass,
-                        status,
-                    });
-                });
-            });
-            setTimeout(this.updateRepos, config.update_interval);
-        },
     },
 };
 </script>

@@ -1,3 +1,4 @@
+import { markdown } from 'markdown';
 import config from './config';
 import state from './state';
 
@@ -38,5 +39,19 @@ export default {
                 });
             });
         });
+    },
+    fetchHelps() {
+        fetch('/data.json')
+            .then(response => response.json())
+            .then((data) => {
+                state.helpfiles = data.helpfiles;
+                for (const filename of data.helpfiles) {
+                    fetch(`/helps/${filename}.md`)
+                        .then(response => response.text())
+                        .then((text) => {
+                            state.helps[filename] = markdown.toHTML(text);
+                        });
+                }
+            });
     },
 };

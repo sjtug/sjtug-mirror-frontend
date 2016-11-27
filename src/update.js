@@ -9,5 +9,6 @@ export default {
 
     start() {
         this.updateMirrorListRoutine();
+        mutations.fetchHelps();
     },
 };

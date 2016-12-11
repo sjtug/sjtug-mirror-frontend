@@ -5,9 +5,9 @@
                 <div class="container">
                     <a href="#" class="brand-logo center" style="height: 100%"><img src="https://raw.githubusercontent.com/sjtug/sjtug.github.io/master/img/Rocket120.png" alt="logo" style="vertical-align: middle; max-height: 80%; margin: auto"> SJTUG Mirror</a>
                     <ul id="nav-mobile" class="left hide-on-med-and-down">
-                        <li><router-link to="/" exact>首页</router-link></li>
-                        <li><router-link to="/news">新闻</router-link></li>
-                        <li><router-link to="/helps">帮助</router-link></li>
+                        <router-link tag="li" to="/" exact><a>首页</a></router-link>
+                        <router-link tag="li" to="/news"><a>新闻</a></router-link>
+                        <router-link tag="li" to="/helps"><a>帮助</a></router-link>
                     </ul>
                 </div>
             </div>

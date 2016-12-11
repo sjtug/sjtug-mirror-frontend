@@ -5,7 +5,10 @@
         </div>
         <div class="col s12 l4">
             <h2 class="news-title">近期新闻</h2>
-            <ul class="collapsible" id="news" data-collapsible="accordion">
+            <ul>
+                <template v-for="n in newsfiles">
+                <newsbox v-bind:news="n"><newsbox>
+                </template>
             </ul>
         </div>
     </div>
@@ -14,10 +17,18 @@
 
 <script>
 import mirrorlist from './mirrorlist.vue';
+import newsbox from './newsbox.vue';
+import state from './state';
 
 export default {
     components: {
         mirrorlist,
+        newsbox,
+    },
+    data() {
+        return {
+            newsfiles: state.newsfiles,
+        };
     },
 };
 </script>

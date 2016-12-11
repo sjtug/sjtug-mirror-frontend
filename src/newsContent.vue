@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div v-html='content'></div>
+        {{ news.title }}
+        <div v-html='news.content'></div>
     </div>
 </template>
 
@@ -10,7 +11,7 @@ import state from './state';
 export default {
     data() {
         return {
-            content: state.news[this.$route.params.title].content,
+            news: state.news[this.$route.params.title],
         };
     },
 };

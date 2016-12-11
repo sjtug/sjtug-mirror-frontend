@@ -1,4 +1,5 @@
 import { markdown } from 'markdown';
+import 'whatwg-fetch';
 import Vue from 'vue';
 import config from './config';
 import state from './state';

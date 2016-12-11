@@ -1,10 +1,8 @@
 <template>
-    <div>
-    <ul>
+    <div class="collection">
     <template v-for="filename in helpfiles">
-    <li><router-link :to="{ name: 'helpContent', params: { title: filename }}">{{ filename }}</router-link></li>
+    <router-link :to="{ name: 'helpContent', params: { title: filename }}" class="collection-item" active-class="active">{{ filename }}</router-link>
     </template>
-    <ul>
     </div>
 </template>
 

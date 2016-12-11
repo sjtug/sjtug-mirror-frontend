@@ -8,6 +8,7 @@ import main from './main.vue';
 import helps from './helps.vue';
 import helpContent from './helpContent.vue';
 import news from './news.vue';
+import newsContent from './newsContent.vue';
 import update from './update';
 
 Vue.use(VueRouter);
@@ -25,6 +26,10 @@ const routes = [
     { path: '/helps/:title',
         name: 'helpContent',
         component: helpContent,
+    },
+    { path: '/news/:title',
+        name: 'newsContent',
+        component: newsContent,
     },
 ];
 

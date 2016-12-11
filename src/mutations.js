@@ -1,4 +1,5 @@
 import { markdown } from 'markdown';
+import Vue from 'vue';
 import config from './config';
 import state from './state';
 
@@ -49,9 +50,28 @@ export default {
                     fetch(`/helps/${filename}.md`)
                         .then(response => response.text())
                         .then((text) => {
-                            state.helps[filename] = markdown.toHTML(text);
+                            Vue.set(state.helps, filename, markdown.toHTML(text));
                         });
                 }
             });
+    },
+    fetchNews() {
+        fetch('/data.json')
+            .then(response => response.json())
+            .then((data) => {
+                state.newsfiles = data.newsfiles;
+                for (const n of data.newsfiles) {
+                    fetch(`/news/${n.filename}.md`)
+                        .then(response => response.text())
+                        .then((text) => {
+                            Vue.set(state.news, n.filename, {
+                                title: n.title,
+                                data: n.date,
+                                content: markdown.toHTML(text),
+                            });
+                        });
+                }
+            }
+        );
     },
 };

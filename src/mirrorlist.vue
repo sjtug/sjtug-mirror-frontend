@@ -38,7 +38,7 @@
         <div class="col s12">
             <h5>说明</h5>
             <ul>
-                <li>所有更新时间均为UTC +0。</li>
+                <li>若无明确指定，所有更新时间均为UTC +8。</li>
             </ul>
         </div>
     </div>

@@ -18,6 +18,11 @@
                     <tr v-for="repo in repos">
                         <td>
                             <a v-bind:href="mirror_baseurl + repo.name">{{repo.display_name}}</a>
+                            <span v-if="repo.name in helps">
+                                <router-link :to="{name: 'helpContent', params: {title: repo.name}}" class="help-link">
+                                    帮助
+                                </router-link>
+                            </span>
                         </td>
                         <td>
                             {{repo.last_sync}}
@@ -61,6 +66,11 @@
     padding: 5px;
 }
 
+.help-link
+{
+    color:blueviolet;
+}
+
 i.svg
 {
     margin-left: 0.5em;
@@ -76,6 +86,7 @@ export default {
         return {
             mirror_baseurl: config.mirrorBaseUrl,
             repos: state.mirrorList,
+            helps: state.helps,
         };
     },
 };

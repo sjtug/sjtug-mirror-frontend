@@ -90,7 +90,7 @@ export default {
     },
 
     fetchHelps() {
-        fetch('/data.json')
+        fetch('./data.json')
             .then(response => response.json())
             .then((data) => {
                 state.helpfiles = data.helpfiles;
@@ -104,7 +104,7 @@ export default {
             });
     },
     fetchNews() {
-        fetch('/data.json')
+        fetch('./data.json')
             .then(response => response.json())
             .then((data) => {
                 state.newsfiles = data.newsfiles;

@@ -95,7 +95,7 @@ export default {
             .then((data) => {
                 state.helpfiles = data.helpfiles;
                 for (const filename of data.helpfiles) {
-                    fetch(`/helps/${filename}.md`)
+                    fetch(`./helps/${filename}.md`)
                         .then(response => response.text())
                         .then((text) => {
                             Vue.set(state.helps, filename, markdown.toHTML(text));
@@ -109,7 +109,7 @@ export default {
             .then((data) => {
                 state.newsfiles = data.newsfiles;
                 for (const n of data.newsfiles) {
-                    fetch(`/news/${n.filename}.md`)
+                    fetch(`./news/${n.filename}.md`)
                         .then(response => response.text())
                         .then((text) => {
                             Vue.set(state.news, n.filename, {

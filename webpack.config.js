@@ -10,10 +10,17 @@ module.exports = {
         filename: '[name].js',
         publicPath: 'dists/',
     },
+    externals: {
+        jquery: "jQuery",
+        vue: "Vue",
+    },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             include: /\.min\.js$/,
-            minimize: true
+            minimize: true,
+            compress: {
+                warnings: false
+            }
         })
     ],
     resolve: {

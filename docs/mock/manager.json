@@ -1,0 +1,18 @@
+{
+  "Running": true,
+  "WorkerStatus": {
+    "worker1": {
+      "Result": true,
+      "LastFinished": "2017-04-04T20:28:20.909514311+08:00",
+      "Idle": true,
+      "Stdout": [
+        "Stdout1",
+        "Stdout2"
+      ],
+      "Stderr": [
+        "Stderr1",
+        "Stderr2"
+      ]
+    }
+  }
+}

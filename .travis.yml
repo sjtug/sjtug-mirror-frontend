@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - node
+cache: yarn
 env:
 - CXX=g++-5
 addons:

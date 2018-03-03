@@ -6,5 +6,5 @@ export default {
   // All packages should be accessible at backendAddressBase + '/' + repo.name
   backendAddressBase: 'https://mirrors-v2.sjtug.org',
   // Address of the summary of backend in sjtug/lug format
-  backendSummaryAddress: 'https://mirrors-v2.sjtug.org'
+  backendSummaryAddress: 'https://mirrors-v2.sjtug.org/lug/v1/manager/summary'
 }

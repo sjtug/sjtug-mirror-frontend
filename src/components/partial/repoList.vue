@@ -10,7 +10,7 @@
      </thead>
      <tbody>
        <tr v-for="item in backendSummary" v-if="isMatched(item.name)" :key="item.name" class="help-row">
-         <th>{{item.name}}</th>
+         <th><a :href="item.name | toAddress">{{item.name}}</a></th>
          <td>
            <span v-if="item.idle && item.result" class="tag is-success">同步成功</span>
            <span v-else-if="item.idle && !item.result" class="tag is-danger">同步失败</span>
@@ -96,6 +96,11 @@ export default {
      */
     isMatched (name) {
       return name.includes(this.filterInput)
+    }
+  },
+  filters: {
+    toAddress (name) {
+      return config.backendAddressBase + '/' + name + '/'
     }
   }
 }

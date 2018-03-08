@@ -1,12 +1,18 @@
 <template>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item " href="https://mirrors.sjtug.org">
+    <router-link class="navbar-item " to="/" active-class="is-active">
       <span class="sjtug-name">SJTUG</span> 软件源镜像服务
-    </a>
+    </router-link>
   </div>
   <div class="navbar-menu">
     <div class="navbar-end">
+      <router-link class="navbar-item" active-class="is-active" to="/admin">
+        <span class="icon">
+          <i class="fa fa-cogs"></i>
+        </span>
+        监控
+      </router-link>
       <a class="navbar-item" href="http://sjtug.org">
         SJTUG 主页
       </a>

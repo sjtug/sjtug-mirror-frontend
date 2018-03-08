@@ -4,10 +4,18 @@
     <div class="columns">
       <div class="column is-9">
         软件源服务由
-        <a href="http://sjtug.org">
-          <img src="@/assets/logo.png" class="footer-logo">上海交通大学Linux用户组 (SJTUG)
-        </a>
-        提供
+        <ul>
+          <li>
+            <a href="http://sjtug.org">
+              <img src="@/assets/logo.png" class="footer-logo">上海交通大学Linux用户组 (SJTUG)
+            </a>
+            维护
+          </li>
+          <li>
+            <a href="http://net.sjtu.edu.cn">上海交通大学网络信息中心</a>
+            赞助资源
+          </li>
+        </ul>
       </div>
       <div class="column">
         <aside class="menu">

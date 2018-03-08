@@ -21,7 +21,7 @@
               </a>
             </li>
             <li>
-              <a href="mailto:vicluo96@gmail.com">
+              <a href="mailto:vicluo96+mirrors@gmail.com">
                 <span class="icon">
                   <i class="fa fa-envelope-o"></i>
                 </span>

@@ -15,9 +15,9 @@
             <a href="http://net.sjtu.edu.cn">上海交通大学网络信息中心</a>
             赞助资源
           </li>
-		  <li>
-		    沪交ICP备20180085
-		  </li>
+		      <li>
+		        沪交ICP备20180085
+		      </li>
         </ul>
       </div>
       <div class="column">

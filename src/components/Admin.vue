@@ -1,7 +1,7 @@
 <template>
   <div class="admin container">
     <h1 class="title">镜像源监控</h1>
-    <iframe src="https://app.logz.io/#/dashboard/kibana?embed=true&kibanaRoute=%2Fdashboard%2F0b776340-211a-11e8-8e94-d9bd750d361a%3F_g%3D(refreshInterval%253A(display%253AOff%252Cpause%253A!f%252Cvalue%253A0)%252Ctime%253A(from%253Anow%252Fd%252Cmode%253Aquick%252Cto%253Anow%252Fd))&theme=default&shareToken=c66b1e8e-2296-423e-bbce-0a41226baa70" class="monitor-frame" ref="monitorFrame" @load="resizeIframe" />
+    <iframe src="https://app.logz.io/goto/702fb6f271cc53dc06543199abc463d2?shareToken=c66b1e8e-2296-423e-bbce-0a41226baa70" class="monitor-frame" ref="monitorFrame" @load="resizeIframe" />
 
   </div>
 </template>

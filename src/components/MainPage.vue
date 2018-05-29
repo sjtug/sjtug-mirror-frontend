@@ -19,6 +19,9 @@
             </div>
             <div class="column">
               <h2 class="subtitle">镜像源新闻</h2>
+              <div class="notification">
+                欢迎关注我们的Telegram频道 <a href="https://t.me/sjtug_mirrors_news">@sjtug_mirrors_news</a> 获取最新资讯
+              </div>
               <news />
             </div>
           </div>

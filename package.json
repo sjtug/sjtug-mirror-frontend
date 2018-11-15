@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@sentry/browser": "^4.3.0",
     "axios": "^0.17.1",
     "bulma": "^0.6.2",
     "font-awesome": "^4.7.0",

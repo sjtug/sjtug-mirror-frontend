@@ -8,9 +8,9 @@ addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
-  packages:
-  - g++-5
-  - zip
+    packages:
+    - g++-5
+    - zip
 install:
 - npm i -g yarn && yarn
 script:

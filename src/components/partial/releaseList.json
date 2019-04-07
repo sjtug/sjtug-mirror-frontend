@@ -1,4 +1,4 @@
 {
     "data": ["archlinux", "centos", "fedora", "debian-cd", "kali-images",
-             "mx-isos", "ubuntu-cd", "opensuse"]
+             "mx-isos", "ubuntu-cd", "opensuse", "parrot"]
 }

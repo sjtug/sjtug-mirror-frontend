@@ -49,6 +49,8 @@
 <script>
 import {getBackendSummary, getHelps} from '@/api'
 import config from '@/config'
+import releaseList from './releaseList.json'
+import _ from 'lodash'
 
 export default {
   name: 'repoList',
@@ -61,7 +63,8 @@ export default {
     }
   },
   props: {
-    filterInput: String
+    filterInput: String,
+    filterRelease: Boolean
   },
   mounted () {
     getBackendSummary(config.backendSummaryAddress).then((summary) => {
@@ -95,6 +98,7 @@ export default {
      * @param name {string}
      */
     isMatched (name) {
+      if (this.filterRelease) return _.includes(releaseList.data, name)
       return name.includes(this.filterInput)
     }
   },

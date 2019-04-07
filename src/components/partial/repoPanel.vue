@@ -5,17 +5,25 @@
       <h2 class="subtitle">镜像&#x2F;反代列表</h2>
     </div>
     <div class="level-right">
-      <div class="field">
-        <p class="control has-icons-left">
-        <input v-model="filterInput" class="input" type="text" placeholder="输入名称查找镜像/反代服务">
-          <span class="icon is-small is-left">
-            <i class="fa fa-search"></i>
-          </span>
-        </p>
+      <div class="level-item">
+        <label class="checkbox">
+          <input type="checkbox" v-model="filterRelease">
+          仅发行版安装镜像
+        </label>
+      </div>
+      <div class="level-item">
+        <div class="field">
+          <p class="control has-icons-left">
+            <input v-model="filterInput" class="input" type="text" placeholder="输入名称查找镜像/反代服务">
+            <span class="icon is-small is-left">
+              <i class="fa fa-search"></i>
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-  <repo-list :filter-input="filterInput" />
+  <repo-list :filter-input="filterInput" :filter-release="filterRelease" />
 </div>
 </template>
 
@@ -26,7 +34,8 @@ export default {
   name: 'repoPanel',
   components: {RepoList},
   data: () => ({
-    filterInput: ''
+    filterInput: '',
+    filterRelease: false
   })
 }
 </script>

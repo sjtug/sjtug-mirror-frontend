@@ -15,7 +15,14 @@
         <div class="mw-body">
           <div class="columns">
             <div class="column is-9">
-              <repo-panel />
+              <div class="tabs">
+                <ul>
+                  <li :class="{ 'is-active': page == 'repo' }"><a href="javascript:" @click="page = 'repo'">镜像/反代列表</a></li>
+                  <li :class="{ 'is-active': page == 'release' }"><a href="javascript:" @click="page = 'release'">发行版列表</a></li>
+                </ul>
+              </div>
+              <repo-panel v-if="page == 'repo'" />
+              <release-panel v-if="page == 'release'" />
             </div>
             <div class="column">
               <h2 class="subtitle">镜像源新闻</h2>
@@ -36,13 +43,17 @@
 <script>
 import News from '@/components/partial/news'
 import RepoPanel from '@/components/partial/repoPanel'
-
+import ReleasePanel from '@/components/partial/releasePanel'
 export default {
   name: 'MainPage',
   components: {
     News,
-    RepoPanel
-  }
+    RepoPanel,
+    ReleasePanel
+  },
+  data: () => ({
+    page: 'repo'
+  })
 }
 </script>
 

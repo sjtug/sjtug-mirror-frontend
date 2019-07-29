@@ -1,0 +1,39 @@
+{
+    "release": {
+        "archlinux": {
+            "最新版本": "archlinux/iso/latest",
+            "其他版本": "archlinux/iso"
+        },
+        "centos": {
+            "7": "centos/7.6.1810/isos",
+            "6": "centos/6.10/isos"
+        },
+        "fedora": {
+            "29": "fedora/linux/releases/29",
+            "28": "fedora/linux/releases/28"
+        },
+        "debian-cd": {
+            "最新版本": "debian-cd/current",
+            "其他版本": "debian-cd/current"
+        },
+        "kali-images": {
+            "最新版本": "kali-images/current",
+            "其他版本": "kali-images"
+        },
+        "mx-isos": {
+            "antiX": "mx-isos/ANTIX/Final",
+            "MX": "mx-isos/MX/Final"
+        },
+        "ubuntu-cd": {
+            "所有版本": "ubuntu-cd"
+        },
+        "opensuse": {
+            "最新版本": "opensuse/distribution/openSUSE-current/iso",
+            "稳定版本": "opensuse/distribution/openSUSE-stable/iso",
+            "其他版本": "opensuse/distribution/leap"
+        },
+        "parrot": {
+            "所有版本": "parrot/iso"
+        }
+    }
+}

@@ -16,7 +16,6 @@ install:
 script:
 - yarn build
 before_deploy:
-- rm -rf dist/*.map
 - zip -r dists.zip dist/
 deploy:
   skip_cleanup: true

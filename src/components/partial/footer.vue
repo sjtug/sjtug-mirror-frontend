@@ -24,7 +24,7 @@
         <aside class="menu">
           <ul class="menu-list">
             <li>
-              <a href="https://github.com/sjtug/mirror-requests/issues/new" target="_blank" rel="nofollow">
+              <a href="https://github.com/sjtug/mirror-requests/issues/new/choose" target="_blank" rel="nofollow">
                 <span class="icon">
                   <i class="fa fa-commenting-o"></i>
                 </span>

@@ -32,7 +32,7 @@
               </a>
             </li>
             <li>
-              <a href="mailto:vicluo96+mirrors@gmail.com">
+              <a href="mailto:sjtug-mirror-maintainers@googlegroups.com">
                 <span class="icon">
                   <i class="fa fa-envelope-o"></i>
                 </span>

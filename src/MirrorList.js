@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import * as timeago from 'timeago.js';
 
 function MirrorList({ summary }) {

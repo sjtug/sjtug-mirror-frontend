@@ -1,5 +1,6 @@
 import React from 'react';
 import * as timeago from 'timeago.js';
+import sortBy from 'lodash/sortBy';
 
 function SvgCheck() {
     return <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -33,8 +34,8 @@ function getStatus(value) {
 }
 
 function MirrorList({ summary }) {
-    const rows = Object.entries(summary).map(entry => {
-        const [key, value] = entry;
+    const rows = sortBy(Object.keys(summary)).map(key => {
+        const value = summary[key];
         const status = getStatus(value)
         return <tr key={key}>
             <td><a href={value.url}>{key}</a></td>

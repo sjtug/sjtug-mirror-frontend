@@ -1,1 +1,11 @@
 @import "~bootstrap/scss/bootstrap.scss";
+
+.bg-sjtug {
+  background-image: linear-gradient(90deg, #3373c4, #1750ac);
+}
+
+.list-footer {
+  li {
+    margin-bottom: 1rem;
+  }
+}

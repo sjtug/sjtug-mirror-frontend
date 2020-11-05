@@ -1,8 +1,8 @@
-import './App.scss';
-import useData from './utils';
-import MirrorList from './MirrorList';
-import mapValues from 'lodash/mapValues';
-import assign from 'lodash/assign';
+import "./App.scss";
+import useData from "./utils";
+import MirrorList from "./MirrorList";
+import mapValues from "lodash/mapValues";
+import assign from "lodash/assign";
 
 function transform(status, base, server) {
   return mapValues(status, (v, k) => ({
@@ -10,18 +10,30 @@ function transform(status, base, server) {
     lastFinished: v.LastFinished,
     result: v.Result,
     url: `${base}/${k}/`,
-    server: server
-  }))
+    server: server,
+  }));
 }
 
 function App() {
-  const { data: summary1 } = useData("http://mirrors.internal.skyzh.xyz/lug/v1/manager/summary");
-  const { data: summary2 } = useData("https://mirrors.sjtug.sjtu.edu.cn/lug/v1/manager/summary");
+  const { data: summary1 } = useData(
+    "http://mirrors.internal.skyzh.xyz/lug/v1/manager/summary"
+  );
+  const { data: summary2 } = useData(
+    "https://mirrors.sjtug.sjtu.edu.cn/lug/v1/manager/summary"
+  );
   if (summary1 || summary2) {
-    const summary1t = transform((summary1 || {}).WorkerStatus || {}, "http://mirrors.internal.skyzh.xyz", "Siyuan");
-    const summary2t = transform((summary2 || {}).WorkerStatus || {}, "https://mirrors.sjtug.sjtu.edu.cn", "Zhiyuan");
+    const summary1t = transform(
+      (summary1 || {}).WorkerStatus || {},
+      "http://mirrors.internal.skyzh.xyz",
+      "Siyuan"
+    );
+    const summary2t = transform(
+      (summary2 || {}).WorkerStatus || {},
+      "https://mirrors.sjtug.sjtu.edu.cn",
+      "Zhiyuan"
+    );
     const summary = summary2t;
-    console.log(summary1t, summary2t)
+    console.log(summary1t, summary2t);
     assign(summary, summary1t);
 
     return (
@@ -29,7 +41,9 @@ function App() {
         <div className="jumbotron jumbotron-fluid bg-light px-0 pt-0 bg-sjtug text-white">
           <nav className="navbar navbar-dark">
             <div className="container">
-              <a className="navbar-brand" href="/">SJTUG 软件源镜像服务</a>
+              <a className="navbar-brand" href="/">
+                SJTUG 软件源镜像服务
+              </a>
             </div>
           </nav>
           <div className="container pt-5">
@@ -44,17 +58,21 @@ function App() {
           <div className="container">
             <div className="col-md-6 p-1">
               <p>
-                您正在使用 SJTUG Siyuan 服务器。
-                该服务器托管于 jCloud，由 <a href="https://sjtug.org">上海交通大学 Linux 用户组 (SJTUG)</a> 维护，
-                由 <a href="https://net.sjtu.edu.cn">上海交通大学网络信息中心</a> 赞助资源。
-            </p>
+                您正在使用 SJTUG Siyuan 服务器。 该服务器托管于 jCloud，由{" "}
+                <a href="https://sjtug.org">
+                  上海交通大学 Linux 用户组 (SJTUG)
+                </a>{" "}
+                维护， 由{" "}
+                <a href="https://net.sjtu.edu.cn">上海交通大学网络信息中心</a>{" "}
+                赞助资源。
+              </p>
             </div>
           </div>
         </footer>
       </>
     );
   } else {
-    return <div></div>
+    return <div></div>;
   }
 }
 

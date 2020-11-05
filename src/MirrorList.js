@@ -20,27 +20,27 @@ const STATUS_FAILED = 2;
 const SYNC_THRESHOLD = 86400 * 1000 * 300;
 
 function getStatus(value) {
-    if (!value.Idle) {
+    if (!value.idle) {
         return STATUS_SYNC;
     }
-    if (!value.Result) {
+    if (!value.result) {
         return STATUS_FAILED;
     }
-    if (Date.now() - (new Date(value.LastFinished)).getTime() > SYNC_THRESHOLD) {
+    if (Date.now() - (new Date(value.lastFinished)).getTime() > SYNC_THRESHOLD) {
         return STATUS_SYNC;
     }
     return STATUS_SUCCESS;
 }
 
 function MirrorList({ summary }) {
-    const rows = Object.entries(summary.WorkerStatus).map(entry => {
+    const rows = Object.entries(summary).map(entry => {
         const [key, value] = entry;
         const status = getStatus(value)
         return <tr key={key}>
-            <td><a href={`/${key}/`}>{key}</a></td>
-            <td>{Date.now() - (new Date(value.LastFinished)).getTime() > SYNC_THRESHOLD ? "未知" : timeago.format(value.LastFinished, 'zh_CN')}</td>
+            <td><a href={value.url}>{key}</a></td>
+            <td>{Date.now() - (new Date(value.lastFinished)).getTime() > SYNC_THRESHOLD ? "未知" : timeago.format(value.lastFinished, 'zh_CN')}</td>
             <td>
-                <div className="d-flex fvalue.Resultlex-row align-items-center">
+                <div className="d-flex flex-row align-items-center">
                     {status === STATUS_SUCCESS ?
                         <>
                             <div className="mx-1 text-success"><SvgCheck /></div>
@@ -60,6 +60,7 @@ function MirrorList({ summary }) {
 
                 </div>
             </td>
+            <td className="small">{`存储@${value.server}`}</td>
         </tr>
     })
     return <table className="table table-sm table-borderless">
@@ -67,7 +68,8 @@ function MirrorList({ summary }) {
             <tr>
                 <th scope="col">镜像名称</th>
                 <th scope="col">上次同步</th>
-                <th scope="col">同步状态</th>
+                <th scope="col">状态</th>
+                <th scope="col">类型</th>
             </tr>
         </thead>
         <tbody>{rows}</tbody>

@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "./Navbar";
-import { useRSSData } from "./utils";
+import { useMirrorHelp } from "./utils";
 import { LinkContainer } from "react-router-bootstrap";
 import sortBy from "lodash/sortBy";
 import find from "lodash/find";
@@ -27,10 +27,7 @@ function DocsContent({ docs }) {
 }
 
 function Docs() {
-  const { data: docs_ } = useRSSData(
-    "https://sjtug-portal-1251836446.file.myqcloud.com/tags/mirror-help/index.xml"
-  );
-
+  const { data: docs_ } = useMirrorHelp();
   let docs = sortBy((docs_ || {}).items || [], "title");
 
   const navRows = docs.map((item) => (
@@ -41,9 +38,8 @@ function Docs() {
 
   return (
     <>
-      <div className="bg-sjtug">
-        <Navbar />
-      </div>
+      <Navbar />
+
       <Container className="my-3">
         <Row>
           <div className="col-sm-3 d-none d-sm-block">

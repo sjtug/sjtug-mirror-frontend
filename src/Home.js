@@ -1,9 +1,12 @@
 import useData from "./utils";
+import { useMirrorHelp } from "./utils";
 import MirrorList from "./MirrorList";
 import Navbar from "./Navbar";
 
 import mapValues from "lodash/mapValues";
 import assign from "lodash/assign";
+import map from "lodash/map";
+import includes from "lodash/includes";
 
 import logo from "./assets/sjtug.svg";
 import Row from "react-bootstrap/Row";
@@ -38,14 +41,20 @@ function Home() {
     "https://mirrors.sjtug.sjtu.edu.cn",
     "Zhiyuan"
   );
-  const summary = summary2t;
-  console.log(summary1t, summary2t);
-  assign(summary, summary1t);
+  const summary_ = summary2t;
+  assign(summary_, summary1t);
+
+  const { data: docs_ } = useMirrorHelp();
+  let docs = map((docs_ || {}).items || [], "title");
+
+  const summary = mapValues(summary_, (v, k) =>
+    assign(v, { docs: includes(docs, k) })
+  );
 
   return (
     <>
-      <div className="jumbotron jumbotron-fluid bg-light px-0 pt-0 bg-sjtug text-white">
-        <Navbar />
+      <Navbar />
+      <div className="jumbotron jumbotron-fluid bg-light">
         <div className="container pt-5">
           <h1>稳定、快速、现代的镜像服务</h1>
           <p className="lead">托管于华东教育网骨干节点——上海交通大学</p>

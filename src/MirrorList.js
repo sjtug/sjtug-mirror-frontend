@@ -2,7 +2,12 @@ import React from "react";
 import * as timeago from "timeago.js";
 import sortBy from "lodash/sortBy";
 
-import { BsCheck as SvgCheck, BsX as SvgX } from "react-icons/bs";
+import {
+  BsCheck as SvgCheck,
+  BsX as SvgX,
+  BsInfoCircleFill,
+} from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const STATUS_SUCCESS = 0;
 const STATUS_SYNC = 1;
@@ -31,6 +36,13 @@ function MirrorList({ summary }) {
       <tr key={key}>
         <td>
           <a href={value.url}>{key}</a>
+          {value.docs ? (
+            <Link className="ml-1" to={`/docs/${key}`}>
+              <BsInfoCircleFill />
+            </Link>
+          ) : (
+            <></>
+          )}
         </td>
         <td>
           {Date.now() - new Date(value.lastFinished).getTime() > SYNC_THRESHOLD

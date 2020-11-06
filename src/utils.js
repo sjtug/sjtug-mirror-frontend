@@ -23,3 +23,9 @@ export default function useData(url) {
 export function useRSSData(url) {
   return useSWR(url, rssFetcher);
 }
+
+export function useMirrorHelp() {
+  return useRSSData(
+    "https://sjtug-portal-1251836446.file.myqcloud.com/tags/mirror-help/index.xml"
+  );
+}

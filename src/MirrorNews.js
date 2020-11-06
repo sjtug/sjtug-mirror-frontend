@@ -1,6 +1,6 @@
 export default function MirrorNews({ news }) {
   const news_ = news.slice(0, 5).map((item) => (
-    <li className="my-2">
+    <li key={item.title}>
       <small className="text-secondary">
         {new Date(item.isoDate || "").toLocaleDateString()}
       </small>
@@ -10,7 +10,7 @@ export default function MirrorNews({ news }) {
   ));
   return (
     <div>
-      <p>
+      <p className="small">
         您可以关注镜像源 Telegram 频道{" "}
         <a href="https://t.me/sjtug_mirrors_news">@sjtug_mirrors_news</a>{" "}
         以获取最新资讯。

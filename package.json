@@ -58,5 +58,9 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "devDependencies": {
+    "typography": "^0.16.19",
+    "typography-theme-github": "^0.16.19"
   }
 }

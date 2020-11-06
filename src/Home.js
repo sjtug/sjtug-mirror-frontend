@@ -1,6 +1,7 @@
 import useData from "./utils";
-import { useMirrorHelp } from "./utils";
+import { useMirrorHelp, useMirrorNews } from "./utils";
 import MirrorList from "./MirrorList";
+import MirrorNews from "./MirrorNews";
 import Navbar from "./Navbar";
 
 import mapValues from "lodash/mapValues";
@@ -51,17 +52,37 @@ function Home() {
     assign(v, { docs: includes(docs, k) })
   );
 
+  let mirrorName = "";
+  if (window.location.hostname.startsWith("mirrors.internal")) {
+    mirrorName = "Siyuan";
+  } else {
+    mirrorName = "Zhiyuan";
+  }
+
+  const { data: news } = useMirrorNews();
+
   return (
     <>
       <Navbar />
-      <div className="jumbotron jumbotron-fluid bg-light">
+      <div className="jumbotron jumbotron-fluid bg-white">
         <div className="container pt-5">
-          <h1>稳定、快速、现代的镜像服务</h1>
-          <p className="lead">托管于华东教育网骨干节点——上海交通大学</p>
+          <h1 className="title-sjtug text-sjtug">稳定、快速、现代的镜像服务</h1>
+          <p className="lead">
+            托管于华东教育网骨干节点 <b>上海交通大学</b>
+          </p>
         </div>
       </div>
       <div className="container my-3">
-        <MirrorList summary={summary}></MirrorList>
+        <Row>
+          <div className="col-lg-8">
+            <h5 className="text-sjtug">镜像列表</h5>
+            <MirrorList summary={summary}></MirrorList>
+          </div>
+          <div className="col-lg-4">
+            <h5 className="text-sjtug">镜像源新闻</h5>
+            <MirrorNews news={(news || {}).items || []}></MirrorNews>
+          </div>
+        </Row>
       </div>
       <footer className="bg-light py-5">
         <div className="container">
@@ -72,7 +93,7 @@ function Home() {
             <div className="col-9 col-md-5 d-flex align-items-center">
               <ul className="list-unstyled list-footer">
                 <li>
-                  <b>SJTUG Siyuan Mirror</b>
+                  <b>SJTUG {mirrorName} Mirror</b>
                 </li>
                 <li>
                   由{" "}
@@ -86,6 +107,7 @@ function Home() {
                   <a href="https://net.sjtu.edu.cn">上海交通大学网络信息中心</a>{" "}
                   赞助资源
                 </li>
+                <li>沪交 ICP 备 20180085</li>
               </ul>
             </div>
             <div className="col-md-4 p-3 d-md-flex align-items-center text-md-left text-center">

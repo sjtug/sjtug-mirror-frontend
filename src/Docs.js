@@ -42,12 +42,12 @@ function Docs() {
 
       <Container className="my-3">
         <Row>
-          <div className="col-sm-3 d-none d-sm-block">
+          <div className="col-md-3 d-none d-md-block">
             <Nav className="flex-column docs-sjtug" variant="pills">
               {navRows}
             </Nav>
           </div>
-          <div className="col-sm-9">
+          <div className="col-md-9">
             <Switch>
               <Route path="/docs/:title+">
                 <DocsContent docs={docs} />

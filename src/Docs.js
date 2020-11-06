@@ -6,6 +6,7 @@ import { useRSSData } from "./utils";
 import { LinkContainer } from "react-router-bootstrap";
 import sortBy from "lodash/sortBy";
 import find from "lodash/find";
+import "./Docs.scss";
 
 import { useParams, Switch, Route } from "react-router-dom";
 
@@ -45,12 +46,12 @@ function Docs() {
       </div>
       <Container className="my-3">
         <Row>
-          <div className="col-3">
-            <Nav className="flex-column" variant="pills">
+          <div className="col-sm-3 d-none d-sm-block">
+            <Nav className="flex-column docs-sjtug" variant="pills">
               {navRows}
             </Nav>
           </div>
-          <div className="col-9">
+          <div className="col-sm-9">
             <Switch>
               <Route path="/docs/:title+">
                 <DocsContent docs={docs} />

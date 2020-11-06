@@ -1,7 +1,9 @@
+$link-color: #495057 !default;
 @import "~bootstrap/scss/bootstrap.scss";
+@import "./common.scss";
 
 .bg-sjtug {
-  background-image: linear-gradient(90deg, #3373c4, #1750ac);
+  background-image: $sjtug-gradient;
 }
 
 .list-footer {

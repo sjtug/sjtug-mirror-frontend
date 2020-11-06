@@ -44,35 +44,34 @@ function MirrorList({ summary }) {
                 <div className="mx-1 text-success">
                   <SvgCheck />
                 </div>
-                <div className="text-success">同步成功</div>
+                <div className="d-none d-sm-block text-success">同步成功</div>
               </>
             ) : status === STATUS_FAILED ? (
               <>
-                <div className="mx-1 text-warning">
+                <div className="mx-1 text-danger">
                   <SvgX />
                 </div>
-                <div className="text-warning">同步失败</div>
+                <div className="d-none d-sm-block text-danger">同步失败</div>
               </>
             ) : (
               <>
                 <div className="spinner-grow spinner-grow-sm mx-1 text-info"></div>
-                <div className="text-info">正在同步</div>
+                <div className="d-none d-sm-block text-info">正在同步</div>
               </>
             )}
           </div>
         </td>
-        <td className="small">{`存储@${value.server}`}</td>
+        {/* <td className="small">{`存储@${value.server}`}</td> */}
       </tr>
     );
   });
   return (
-    <table className="table table-sm table-borderless">
+    <table className="table table-sm table-borderless table-hover">
       <thead>
         <tr>
           <th scope="col">镜像名称</th>
           <th scope="col">上次同步</th>
           <th scope="col">状态</th>
-          <th scope="col">类型</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>

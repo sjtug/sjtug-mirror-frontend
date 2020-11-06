@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import mapValues from "lodash/mapValues";
 import assign from "lodash/assign";
 
-import logo from "./assets/logo.png";
+import logo from "./assets/sjtug.svg";
 import Row from "react-bootstrap/Row";
 
 import { BsChatDots, BsEnvelope } from "react-icons/bs";

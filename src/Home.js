@@ -1,5 +1,4 @@
-import useData from "./utils";
-import { useMirrorHelp, useMirrorNews } from "./utils";
+import { useMirrorHelp, useMirrorNews, useLugSummary } from "./utils";
 import MirrorList from "./MirrorList";
 import MirrorNews from "./MirrorNews";
 import Navbar from "./Navbar";
@@ -23,17 +22,24 @@ function transform(status, base, server) {
   }));
 }
 
+function isSiyuan() {
+  const hostname = window.location.hostname;
+  return hostname.startsWith("mirrors.internal");
+}
+
 function Home() {
-  const { data: summary1 } = useData(
-    "http://mirrors.internal.skyzh.xyz/lug/v1/manager/summary"
+  const { data: summary1 } = useLugSummary(
+    isSiyuan()
+      ? "http://mirrors.internal.skyzh.xyz"
+      : "https://mirrors.sjtug.sjtu.edu.cn"
   );
-  const { data: summary2 } = useData(
-    "https://mirrors.sjtug.sjtu.edu.cn/lug/v1/manager/summary"
-  );
+  const { data: summary2 } = useLugSummary("https://mirrors.sjtug.sjtu.edu.cn");
 
   const summary1t = transform(
     (summary1 || {}).WorkerStatus || {},
-    "http://mirrors.internal.skyzh.xyz",
+    isSiyuan()
+      ? "http://mirrors.internal.skyzh.xyz"
+      : "https://mirrors.sjtug.sjtu.edu.cn",
     "Siyuan"
   );
   const summary2t = transform(

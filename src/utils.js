@@ -20,6 +20,10 @@ export default function useData(url) {
   return useSWR(url, fetcher);
 }
 
+export function useLugSummary(base) {
+  return useData(`${base}/lug/v1/manager/summary`);
+}
+
 export function useRSSData(url) {
   return useSWR(url, rssFetcher);
 }

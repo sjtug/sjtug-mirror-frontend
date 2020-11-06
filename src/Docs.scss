@@ -1,0 +1,8 @@
+@import "./common.scss";
+
+.docs-sjtug {
+  .nav-link.active {
+    background-color: transparent;
+    background-image: $sjtug-gradient;
+  }
+}

@@ -64,13 +64,10 @@ function Home() {
       <Navbar />
       <div className="jumbotron jumbotron-fluid bg-white">
         <div className="container">
-          <h1 className="title-sjtug text-sjtug ">
-            让电脑开心的镜像，开了又开。
+          <h1 className="title-sjtug text-sjtug">
+            稳定、快速、现代的镜像服务。
           </h1>
-          <p className="lead">
-            稳定、快速、现代的镜像服务。托管于华东教育网骨干节点{" "}
-            <b>上海交通大学</b>。
-          </p>
+          <p className="lead">托管于华东教育网骨干节点上海交通大学。</p>
         </div>
       </div>
       <div className="container my-3">

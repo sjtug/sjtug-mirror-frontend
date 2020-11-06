@@ -11,3 +11,14 @@ $link-color: #495057 !default;
     margin-bottom: 1rem;
   }
 }
+
+.text-sjtug {
+  background: $sjtug-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-sjtug {
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+}

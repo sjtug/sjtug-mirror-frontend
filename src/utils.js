@@ -29,3 +29,9 @@ export function useMirrorHelp() {
     "https://sjtug-portal-1251836446.file.myqcloud.com/tags/mirror-help/index.xml"
   );
 }
+
+export function useMirrorNews() {
+  return useRSSData(
+    "https://sjtug-portal-1251836446.file.myqcloud.com/tags/mirror-news/index.xml"
+  );
+}

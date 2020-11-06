@@ -81,7 +81,7 @@ function MirrorList({ summary }) {
     <table className="table table-sm table-borderless table-hover">
       <thead>
         <tr>
-          <th scope="col">镜像名称</th>
+          <th scope="col">名称</th>
           <th scope="col">上次同步</th>
           <th scope="col">状态</th>
         </tr>

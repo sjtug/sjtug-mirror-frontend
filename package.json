@@ -23,6 +23,8 @@
     "rss-parser": "^3.9.0",
     "swr": "^0.3.8",
     "timeago.js": "^4.0.2",
+    "typography": "^0.16.19",
+    "typography-theme-github": "^0.16.19",
     "web-vitals": "^0.2.4"
   },
   "lint-staged": {

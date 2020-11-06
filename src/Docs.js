@@ -40,7 +40,7 @@ function Docs() {
     <>
       <Navbar />
 
-      <Container className="my-3">
+      <Container className="my-5">
         <Row>
           <div className="col-md-3 d-none d-md-block">
             <Nav className="flex-column docs-sjtug" variant="pills">

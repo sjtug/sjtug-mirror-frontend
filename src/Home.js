@@ -10,6 +10,7 @@ import map from "lodash/map";
 import includes from "lodash/includes";
 
 import logo from "./assets/sjtug.svg";
+
 import Row from "react-bootstrap/Row";
 
 import { BsChatDots, BsEnvelope } from "react-icons/bs";
@@ -65,10 +66,13 @@ function Home() {
     <>
       <Navbar />
       <div className="jumbotron jumbotron-fluid bg-white">
-        <div className="container pt-5">
-          <h1 className="title-sjtug text-sjtug">稳定、快速、现代的镜像服务</h1>
+        <div className="container">
+          <h1 className="title-sjtug text-sjtug ">
+            让电脑开心的镜像，开了又开。
+          </h1>
           <p className="lead">
-            托管于华东教育网骨干节点 <b>上海交通大学</b>
+            稳定、快速、现代的镜像服务。托管于华东教育网骨干节点{" "}
+            <b>上海交通大学</b>。
           </p>
         </div>
       </div>

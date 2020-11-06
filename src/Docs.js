@@ -12,12 +12,10 @@ import { useParams, Switch, Route } from "react-router-dom";
 
 function DocsContent({ docs }) {
   const { title } = useParams();
-  console.log(docs, title);
   const doc = find(docs, (doc) => doc.title === title) || {};
   return (
-    <div>
+    <div className="sjtug-docs">
       <h1>{title}</h1>
-      <hr />
       <div
         className="mt-3"
         dangerouslySetInnerHTML={{ __html: doc.content || "" }}

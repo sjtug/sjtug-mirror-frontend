@@ -6,3 +6,32 @@
     background-image: $sjtug-gradient;
   }
 }
+
+.sjtug-docs {
+  pre {
+    margin: 0;
+    margin-bottom: 36px;
+    padding: 0;
+  }
+
+  pre code {
+    background: hsla(0, 0%, 0%, 0.04);
+    border: 0;
+    border-radius: 3px;
+    display: block;
+    font-size: 16px;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 36px;
+    white-space: inherit;
+    word-wrap: normal;
+  }
+
+  code {
+    background-color: hsla(0, 0%, 0%, 0.04);
+    border-radius: 3px;
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+  }
+}

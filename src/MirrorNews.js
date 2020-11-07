@@ -1,3 +1,5 @@
+import { BsBoxArrowUpRight } from "react-icons/bs";
+
 export default function MirrorNews({ news }) {
   const news_ = news.slice(0, 5).map((item) => (
     <li key={item.title}>
@@ -5,7 +7,9 @@ export default function MirrorNews({ news }) {
         {new Date(item.isoDate || "").toLocaleDateString()}
       </small>
       <br />
-      <a href={item.link}>{item.title}</a>
+      <a href={item.link}>
+        {item.title} <BsBoxArrowUpRight />
+      </a>
     </li>
   ));
   return (

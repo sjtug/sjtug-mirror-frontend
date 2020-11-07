@@ -1,4 +1,4 @@
-$link-color: #495057 !default;
+$link-color: #343a40 !default;
 @import "~bootstrap/scss/bootstrap.scss";
 @import "./common.scss";
 
@@ -12,13 +12,22 @@ $link-color: #495057 !default;
   }
 }
 
-.text-sjtug {
+.text-sjtug-gradient {
   background: $sjtug-gradient-text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.text-sjtug {
+  color: $sjtug-text;
+}
+
 .title-sjtug {
   font-weight: 900;
   letter-spacing: 0.15rem;
+}
+
+body.dark-mode {
+  background-color: #1a1919;
+  color: #999;
 }

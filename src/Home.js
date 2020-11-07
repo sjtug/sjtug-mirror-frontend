@@ -62,10 +62,12 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div className="jumbotron jumbotron-fluid bg-white">
+      <div className="jumbotron jumbotron-fluid bg-transparent">
         <div className="container">
-          <h1 className="title-sjtug text-sjtug">
-            稳定、快速、现代的镜像服务。
+          <h1 className="title-sjtug">
+            <span className="text-sjtug-gradient">
+              稳定、快速、现代的镜像服务。
+            </span>
           </h1>
           <p className="lead">托管于华东教育网骨干节点上海交通大学。</p>
         </div>
@@ -73,13 +75,19 @@ function Home() {
       <div className="container my-3">
         <Row>
           <div className="col-lg-8">
-            <h5 className="text-sjtug">镜像列表</h5>
+            <h5>
+              <span className="text-sjtug">镜像列表</span>
+            </h5>
             <MirrorList summary={summary}></MirrorList>
           </div>
           <div className="col-lg-4">
-            <h5 className="text-sjtug">镜像源新闻</h5>
+            <h5 className="text-sjtug">
+              <span className="text-sjtug">镜像源新闻</span>
+            </h5>
             <MirrorNews news={(news || {}).items || []}></MirrorNews>
-            <h5 className="text-sjtug mt-5">相关链接</h5>
+            <h5 className="text-sjtug mt-5">
+              <span className="text-sjtug">相关链接</span>
+            </h5>
             <ExternalLinks></ExternalLinks>
           </div>
         </Row>

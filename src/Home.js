@@ -64,10 +64,8 @@ function Home() {
       <Navbar />
       <div className="jumbotron jumbotron-fluid bg-transparent">
         <div className="container">
-          <h1 className="title-sjtug">
-            <span className="text-sjtug-gradient">
-              稳定、快速、现代的镜像服务。
-            </span>
+          <h1 className="title-sjtug text-sjtug-gradient">
+            稳定、快速、现代的镜像服务。
           </h1>
           <p className="lead">托管于华东教育网骨干节点上海交通大学。</p>
         </div>

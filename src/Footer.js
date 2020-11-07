@@ -1,5 +1,5 @@
 import logo from "./assets/sjtug.svg";
-import { BsChatDots, BsEnvelope } from "react-icons/bs";
+import { BsChatDots, BsEnvelope, BsBoxArrowUpRight } from "react-icons/bs";
 import Row from "react-bootstrap/Row";
 
 export default function Footer() {
@@ -25,13 +25,15 @@ export default function Footer() {
               <li>
                 由{" "}
                 <a href="https://sjtug.org">
-                  上海交通大学 Linux 用户组 (SJTUG)
+                  上海交通大学 Linux 用户组 (SJTUG) <BsBoxArrowUpRight />
                 </a>{" "}
                 维护
               </li>
               <li>
                 由{" "}
-                <a href="https://net.sjtu.edu.cn">上海交通大学网络信息中心</a>{" "}
+                <a href="https://net.sjtu.edu.cn">
+                  上海交通大学网络信息中心 <BsBoxArrowUpRight />
+                </a>{" "}
                 赞助资源
               </li>
               <li>沪交 ICP 备 20180085</li>

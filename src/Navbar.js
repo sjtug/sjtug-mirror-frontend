@@ -10,7 +10,7 @@ export default function SJTUGNavBar() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <span className="bg-sjtug d-block-inline py-1 pl-1 pr-2 text-white rounded">
+            <span className="bg-sjtug d-block-inline py-1 pl-1 pr-2 rounded">
               <img
                 height="30"
                 className="d-inline-block align-top"

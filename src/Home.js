@@ -24,7 +24,12 @@ function transform(status, base, server) {
 
 function isSiyuan() {
   const hostname = window.location.hostname;
-  return hostname.startsWith("mirrors.internal");
+  return (
+    hostname.startsWith("mirrors.internal") ||
+    hostname.startsWith("localhost") ||
+    hostname.startsWith("mirrors2") ||
+    hostname.startsWith("ftp.sjtu")
+  );
 }
 
 function Home() {

@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 const STATUS_SUCCESS = 0;
 const STATUS_SYNC = 1;
 const STATUS_FAILED = 2;
+const STATUS_PENDING = 3;
 
 const SYNC_THRESHOLD = 86400 * 1000 * 300;
 
@@ -23,7 +24,7 @@ function getStatus(value) {
     return STATUS_FAILED;
   }
   if (Date.now() - new Date(value.lastFinished).getTime() > SYNC_THRESHOLD) {
-    return STATUS_SYNC;
+    return STATUS_PENDING;
   }
   return STATUS_SUCCESS;
 }
@@ -68,7 +69,9 @@ function MirrorList({ summary }) {
             ) : (
               <>
                 <div className="spinner-grow spinner-grow-sm mx-1 text-info"></div>
-                <div className="d-none d-sm-block text-info">正在同步</div>
+                <div className="d-none d-sm-block text-info">
+                  {status === STATUS_PENDING ? "等待同步" : "正在同步"}
+                </div>
               </>
             )}
           </div>

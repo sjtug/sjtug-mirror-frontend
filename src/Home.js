@@ -4,6 +4,7 @@ import MirrorNews from "./MirrorNews";
 import Navbar from "./Navbar";
 
 import mapValues from "lodash/mapValues";
+import pickBy from "lodash/pickBy";
 import assign from "lodash/assign";
 import map from "lodash/map";
 import includes from "lodash/includes";
@@ -11,49 +12,55 @@ import includes from "lodash/includes";
 import Row from "react-bootstrap/Row";
 
 import ExternalLinks from "./ExternalLinks";
+import { BLOCKED_IN_ZHIYUAN, HIDDEN, REVERSE_PROXY } from "./Data";
 
-function transform(status, base, server) {
-  return mapValues(status, (v, k) => ({
+function baseOf(server) {
+  if (server === "Zhiyuan") {
+    return "https://mirrors.sjtug.sjtu.edu.cn";
+  }
+  if (server === "Siyuan") {
+    return "http://mirrors.internal.skyzh.xyz";
+  }
+  return "";
+}
+function filterRepo(status, server) {
+  return pickBy(status, (v, k) => {
+    if (server === "Zhiyuan") {
+      if (includes(BLOCKED_IN_ZHIYUAN, k)) {
+        return false;
+      }
+    }
+    if (includes(HIDDEN, k)) return false;
+    return true;
+  });
+}
+
+function transform(status, server) {
+  return mapValues(filterRepo(status, server), (v, k) => ({
     idle: v.Idle,
     lastFinished: v.LastFinished,
     result: v.Result,
-    url: `${base}/${k}/`,
-    server: server,
+    url: `${baseOf(server)}/${k}/`,
+    server: includes(REVERSE_PROXY, k) ? "Reverse" : server,
   }));
 }
 
-function isSiyuan() {
-  const hostname = window.location.hostname;
-  return (
-    hostname.startsWith("mirrors.internal") ||
-    hostname.startsWith("localhost") ||
-    hostname.startsWith("mirrors2") ||
-    hostname.startsWith("ftp.sjtu")
-  );
-}
-
 function Home() {
-  const { data: summary1 } = useLugSummary(
-    isSiyuan()
-      ? "http://mirrors.internal.skyzh.xyz"
-      : "https://mirrors.sjtug.sjtu.edu.cn"
-  );
-  const { data: summary2 } = useLugSummary("https://mirrors.sjtug.sjtu.edu.cn");
+  const { data: summarySiyuan_ } = useLugSummary(baseOf("Siyuan"));
+  const { data: summaryZhiyuan_ } = useLugSummary(baseOf("Zhiyuan"));
 
-  const summary1t = transform(
-    (summary1 || {}).WorkerStatus || {},
-    isSiyuan()
-      ? "http://mirrors.internal.skyzh.xyz"
-      : "https://mirrors.sjtug.sjtu.edu.cn",
+  const summarySiyuan = transform(
+    (summarySiyuan_ || {}).WorkerStatus || {},
     "Siyuan"
   );
-  const summary2t = transform(
-    (summary2 || {}).WorkerStatus || {},
-    "https://mirrors.sjtug.sjtu.edu.cn",
+
+  const summaryZhiyuan = transform(
+    (summaryZhiyuan_ || {}).WorkerStatus || {},
     "Zhiyuan"
   );
-  const summary_ = summary2t;
-  assign(summary_, summary1t);
+
+  const summary_ = summarySiyuan;
+  assign(summary_, summaryZhiyuan);
 
   const { data: docs_ } = useMirrorHelp();
   let docs = map((docs_ || {}).items || [], "title");

@@ -1,6 +1,9 @@
 import React from "react";
 import * as timeago from "timeago.js";
 import sortBy from "lodash/sortBy";
+import { BsCloudFill, BsServer } from "react-icons/bs";
+
+import { INTRO } from "./Data";
 
 import {
   BsCheck as SvgCheck,
@@ -8,6 +11,8 @@ import {
   BsInfoCircleFill,
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 
 const STATUS_SUCCESS = 0;
 const STATUS_SYNC = 1;
@@ -29,6 +34,42 @@ function getStatus(value) {
   return STATUS_SUCCESS;
 }
 
+function Overlay({ key, value }) {
+  let serverString;
+  if (value.server === "Zhiyuan") {
+    serverString = (
+      <span>
+        <BsServer />
+        <sup>mirrors</sup> 存储于 Zhiyuan Mirror
+      </span>
+    );
+  }
+  if (value.server === "Siyuan") {
+    serverString = (
+      <span>
+        <BsServer />
+        <sup>mirrors2</sup> 存储于 Siyuan Mirror
+      </span>
+    );
+  }
+  if (value.server === "Reverse") {
+    serverString = (
+      <span>
+        <BsCloudFill /> 由 Zhiyuan Mirror 反向代理
+      </span>
+    );
+  }
+  return (
+    <Popover className="ml-3">
+      <Popover.Content>
+        {serverString}
+        <br />
+        {INTRO[key]}
+      </Popover.Content>
+    </Popover>
+  );
+}
+
 function MirrorList({ summary }) {
   const rows = sortBy(Object.keys(summary)).map((key) => {
     const value = summary[key];
@@ -36,7 +77,14 @@ function MirrorList({ summary }) {
     return (
       <tr key={key}>
         <td>
-          <a href={value.url}>{key}</a>
+          <OverlayTrigger
+            key={key}
+            placement="right"
+            overlay={Overlay({ key, value })}
+          >
+            <a href={value.url}>{key}</a>
+          </OverlayTrigger>
+
           {value.docs ? (
             <Link className="ml-1" to={`/docs/${key}`}>
               <BsInfoCircleFill />

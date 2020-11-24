@@ -19,7 +19,7 @@ function baseOf(server) {
     return "https://mirrors.sjtug.sjtu.edu.cn";
   }
   if (server === "Siyuan") {
-    return "http://mirrors.internal.skyzh.xyz";
+    return "https://ftp.sjtu.edu.cn";
   }
   return "";
 }

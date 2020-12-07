@@ -55,7 +55,14 @@ function Overlay({ key, value }) {
   if (value.server === "Reverse") {
     serverString = (
       <span>
-        <BsCloudFill /> 由 Zhiyuan Mirror 反向代理
+        <BsCloudFill /> 反向代理
+      </span>
+    );
+  }
+  if (value.server === "Intel") {
+    serverString = (
+      <span>
+        <BsCloudFill /> 智能缓存
       </span>
     );
   }

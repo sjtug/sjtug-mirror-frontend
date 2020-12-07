@@ -21,17 +21,17 @@ export const BLOCKED_IN_ZHIYUAN = [
   "scientific",
   "ubuntu",
   "ubuntu-cd",
+  "rust-static",
+  "homebrew-bottles",
 ];
 
 export const REVERSE_PROXY = [
-  "rust-static",
   "docker-registry",
   "npm-registry",
   "nodejs-release",
   "flutter_infra",
   "dart_packages",
   "maven-central",
-  "homebrew-bottles",
   "crates.io",
   "static.crates.io",
   "google-fonts",

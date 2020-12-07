@@ -59,8 +59,8 @@ function Home() {
     "Zhiyuan"
   );
 
-  const summary_ = summarySiyuan;
-  assign(summary_, summaryZhiyuan);
+  const summary_ = summaryZhiyuan;
+  assign(summary_, summarySiyuan);
 
   const { data: docs_ } = useMirrorHelp();
   let docs = map((docs_ || {}).items || [], "title");

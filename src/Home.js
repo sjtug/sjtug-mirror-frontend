@@ -12,7 +12,12 @@ import includes from "lodash/includes";
 import Row from "react-bootstrap/Row";
 
 import ExternalLinks from "./ExternalLinks";
-import { BLOCKED_IN_ZHIYUAN, HIDDEN, REVERSE_PROXY } from "./Data";
+import {
+  BLOCKED_IN_ZHIYUAN,
+  HIDDEN,
+  REVERSE_PROXY,
+  MIRROR_INTEL,
+} from "./Data";
 
 function baseOf(server) {
   if (server === "Zhiyuan") {
@@ -41,7 +46,11 @@ function transform(status, server) {
     lastFinished: v.LastFinished,
     result: v.Result,
     url: `${baseOf(server)}/${k}/`,
-    server: includes(REVERSE_PROXY, k) ? "Reverse" : server,
+    server: includes(REVERSE_PROXY, k)
+      ? "Reverse"
+      : includes(MIRROR_INTEL, k)
+      ? "Intel"
+      : server,
   }));
 }
 

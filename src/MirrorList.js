@@ -1,7 +1,6 @@
 import React from "react";
 import * as timeago from "timeago.js";
 import sortBy from "lodash/sortBy";
-import { BsCloudFill, BsServer } from "react-icons/bs";
 
 import { INTRO } from "./Data";
 

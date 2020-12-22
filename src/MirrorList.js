@@ -1,7 +1,6 @@
 import React from "react";
 import * as timeago from "timeago.js";
 import sortBy from "lodash/sortBy";
-import { BsCloudFill, BsServer } from "react-icons/bs";
 
 import { INTRO } from "./Data";
 
@@ -35,44 +34,9 @@ function getStatus(value) {
 }
 
 function Overlay({ key, value }) {
-  let serverString;
-  if (value.server === "Zhiyuan") {
-    serverString = (
-      <span>
-        <BsServer />
-        <sup>mirrors</sup> 存储于 Zhiyuan Mirror
-      </span>
-    );
-  }
-  if (value.server === "Siyuan") {
-    serverString = (
-      <span>
-        <BsServer />
-        <sup>mirrors2</sup> 存储于 Siyuan Mirror
-      </span>
-    );
-  }
-  if (value.server === "Reverse") {
-    serverString = (
-      <span>
-        <BsCloudFill /> 反向代理
-      </span>
-    );
-  }
-  if (value.server === "Intel") {
-    serverString = (
-      <span>
-        <BsCloudFill /> 智能缓存
-      </span>
-    );
-  }
   return (
     <Popover className="ml-3">
-      <Popover.Content>
-        {serverString}
-        <br />
-        {INTRO[key]}
-      </Popover.Content>
+      <Popover.Content>{INTRO[key]}</Popover.Content>
     </Popover>
   );
 }
@@ -84,13 +48,17 @@ function MirrorList({ summary }) {
     return (
       <tr key={key}>
         <td>
-          <OverlayTrigger
-            key={key}
-            placement="right"
-            overlay={Overlay({ key, value })}
-          >
+          {key in INTRO ? (
+            <OverlayTrigger
+              key={key}
+              placement="right"
+              overlay={Overlay({ key, value })}
+            >
+              <a href={value.url}>{key}</a>
+            </OverlayTrigger>
+          ) : (
             <a href={value.url}>{key}</a>
-          </OverlayTrigger>
+          )}
 
           {value.docs ? (
             <Link className="ml-1" to={`/docs/${key}`}>
@@ -129,6 +97,8 @@ function MirrorList({ summary }) {
                 </div>
               </>
             )}
+
+            {/* <span className="d-none d-lg-inline-block">{Storage({key, value})}</span> */}
           </div>
         </td>
         {/* <td className="small">{`存储@${value.server}`}</td> */}

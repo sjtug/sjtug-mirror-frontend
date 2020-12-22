@@ -42,29 +42,6 @@ function Overlay({ key, value }) {
   );
 }
 
-function Storage({ key, value }) {
-  if (value.server === "Zhiyuan") {
-    return (
-      <>
-        <BsServer /> <sup>sjtug</sup>
-      </>
-    );
-  }
-  if (value.server === "Siyuan") {
-    return (
-      <>
-        <BsServer /> <sup>ftp</sup>
-      </>
-    );
-  }
-  if (value.server === "Reverse") {
-    return <BsCloudFill />;
-  }
-  if (value.server === "Intel") {
-    return <BsCloudFill />;
-  }
-}
-
 function MirrorList({ summary }) {
   const rows = sortBy(Object.keys(summary)).map((key) => {
     const value = summary[key];

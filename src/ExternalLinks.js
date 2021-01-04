@@ -66,7 +66,7 @@ export default function ExternalLinks() {
 
       <ul className="list-unstyled list-footer mt-3">
         <li>
-          <a href="https://ftp.sjtu.edu.cn">
+          <a href="https://mirror.sjtu.edu.cn">
             思源 (Siyuan) 镜像服务器 <BsBoxArrowUpRight />
           </a>
         </li>

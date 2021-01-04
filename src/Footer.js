@@ -4,7 +4,11 @@ import Row from "react-bootstrap/Row";
 
 export default function Footer() {
   let mirrorName = "";
-  if (window.location.hostname.startsWith("ftp.sjtu")) {
+  if (
+    window.location.hostname.startsWith("mirror.sjtu") ||
+    window.location.hostname.startsWith("ftp.sjtu") ||
+    window.location.hostname.startsWith("ftp6.sjtu")
+  ) {
     mirrorName = "Siyuan";
   } else {
     mirrorName = "Zhiyuan";

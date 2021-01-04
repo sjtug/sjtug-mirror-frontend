@@ -24,7 +24,7 @@ function baseOf(server) {
     return "https://mirrors.sjtug.sjtu.edu.cn";
   }
   if (server === "Siyuan") {
-    return "https://siyuan.internal.sjtug.org";
+    return "https://mirror.sjtu.edu.cn";
   }
   return "";
 }

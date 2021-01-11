@@ -36,6 +36,7 @@ function filterRepo(status, server) {
       }
     }
     if (includes(HIDDEN, k)) return false;
+    if (k.startsWith(".")) return false;
     return true;
   });
 }

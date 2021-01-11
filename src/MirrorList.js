@@ -42,69 +42,72 @@ function Overlay({ key, value }) {
 }
 
 function MirrorList({ summary }) {
-  const rows = sortBy(Object.keys(summary)).map((key) => {
-    const value = summary[key];
-    const status = getStatus(value);
-    return (
-      <tr key={key}>
-        <td>
-          {key in INTRO ? (
-            <OverlayTrigger
-              key={key}
-              placement="right"
-              overlay={Overlay({ key, value })}
-            >
-              <a href={value.url}>{key}</a>
-            </OverlayTrigger>
-          ) : (
-            <a href={value.url}>{key}</a>
-          )}
-
-          {value.docs ? (
-            <Link className="ml-1" to={`/docs/${key}`}>
-              <BsInfoCircleFill />
-            </Link>
-          ) : (
-            <></>
-          )}
-        </td>
-        <td>
-          {Date.now() - new Date(value.lastFinished).getTime() > SYNC_THRESHOLD
-            ? "未知"
-            : timeago.format(value.lastFinished, "zh_CN")}
-        </td>
-        <td>
-          <div className="d-flex flex-row align-items-center">
-            {status === STATUS_SUCCESS ? (
-              <>
-                <div className="mx-1 text-success">
-                  <SvgCheck />
-                </div>
-                <div className="d-none d-sm-block text-success">同步成功</div>
-              </>
-            ) : status === STATUS_FAILED ? (
-              <>
-                <div className="mx-1 text-danger">
-                  <SvgX />
-                </div>
-                <div className="d-none d-sm-block text-danger">同步失败</div>
-              </>
+  const rows = sortBy(Object.keys(summary), (k) => k.toLowerCase()).map(
+    (key) => {
+      const value = summary[key];
+      const status = getStatus(value);
+      return (
+        <tr key={key}>
+          <td>
+            {key in INTRO ? (
+              <OverlayTrigger
+                key={key}
+                placement="right"
+                overlay={Overlay({ key, value })}
+              >
+                <a href={value.url}>{key}</a>
+              </OverlayTrigger>
             ) : (
-              <>
-                <div className="spinner-grow spinner-grow-sm mx-1 text-info"></div>
-                <div className="d-none d-sm-block text-info">
-                  {status === STATUS_PENDING ? "等待同步" : "正在同步"}
-                </div>
-              </>
+              <a href={value.url}>{key}</a>
             )}
 
-            {/* <span className="d-none d-lg-inline-block">{Storage({key, value})}</span> */}
-          </div>
-        </td>
-        {/* <td className="small">{`存储@${value.server}`}</td> */}
-      </tr>
-    );
-  });
+            {value.docs ? (
+              <Link className="ml-1" to={`/docs/${key}`}>
+                <BsInfoCircleFill />
+              </Link>
+            ) : (
+              <></>
+            )}
+          </td>
+          <td>
+            {Date.now() - new Date(value.lastFinished).getTime() >
+            SYNC_THRESHOLD
+              ? "未知"
+              : timeago.format(value.lastFinished, "zh_CN")}
+          </td>
+          <td>
+            <div className="d-flex flex-row align-items-center">
+              {status === STATUS_SUCCESS ? (
+                <>
+                  <div className="mx-1 text-success">
+                    <SvgCheck />
+                  </div>
+                  <div className="d-none d-sm-block text-success">同步成功</div>
+                </>
+              ) : status === STATUS_FAILED ? (
+                <>
+                  <div className="mx-1 text-danger">
+                    <SvgX />
+                  </div>
+                  <div className="d-none d-sm-block text-danger">同步失败</div>
+                </>
+              ) : (
+                <>
+                  <div className="spinner-grow spinner-grow-sm mx-1 text-info"></div>
+                  <div className="d-none d-sm-block text-info">
+                    {status === STATUS_PENDING ? "等待同步" : "正在同步"}
+                  </div>
+                </>
+              )}
+
+              {/* <span className="d-none d-lg-inline-block">{Storage({key, value})}</span> */}
+            </div>
+          </td>
+          {/* <td className="small">{`存储@${value.server}`}</td> */}
+        </tr>
+      );
+    }
+  );
   return (
     <table className="table table-sm table-borderless table-hover">
       <thead>

@@ -1,6 +1,7 @@
 import logo from "./assets/sjtug.svg";
 import { BsChatDots, BsEnvelope, BsBoxArrowUpRight } from "react-icons/bs";
 import Row from "react-bootstrap/Row";
+import React from "react";
 
 export default function Footer() {
   let mirrorName = "";

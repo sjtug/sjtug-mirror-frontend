@@ -1,4 +1,5 @@
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import React from "react";
 
 export default function MirrorNews({ news }) {
   const news_ = news.slice(0, 5).map((item) => (

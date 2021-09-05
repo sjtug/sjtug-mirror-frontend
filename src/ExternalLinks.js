@@ -1,14 +1,11 @@
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import React from "react";
 
 export default function ExternalLinks() {
   const linkArray = [
     {
-      url: "https://github.com/sjtug/mirror-docker-siyuan",
-      name: "思源 (Siyuan) 镜像服务器源码",
-    },
-    {
-      url: "https://github.com/sjtug/mirror-docker",
-      name: "致远 (Zhiyuan) 镜像服务器源码",
+      url: "https://github.com/sjtug/mirror-docker-unified",
+      name: "镜像基础架构源码",
     },
     { url: "https://github.com/sjtug/lug", name: "镜像同步管理器" },
     {
@@ -23,7 +20,22 @@ export default function ExternalLinks() {
       url: "https://github.com/sjtug/portal",
       name: "镜像站文档与 SJTUG 网站源代码",
     },
-    { url: "https://github.com/sjtug/SJTUThesis", name: "SJTU XeLaTeX 模版" },
+    {
+      url: "https://github.com/sjtug/mirror-intel",
+      name: "mirror-intel 反代缓存工具",
+    },
+    {
+      url: "https://github.com/sjtug/mirror-clone",
+      name: "mirror-clone 通用镜像工具",
+    },
+    {
+      url: "https://github.com/sjtug/SJTUThesis",
+      name: "SJTUThesis LaTeX 模版",
+    },
+    {
+      url: "https://github.com/sjtug/SJTUBeamer",
+      name: "SJTUBeamer LaTeX 模版",
+    },
   ];
 
   return (

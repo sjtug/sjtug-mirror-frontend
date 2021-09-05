@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import * as timeago from "timeago.js";
 import sortBy from "lodash/sortBy";
 
@@ -66,7 +66,7 @@ function MirrorList({ summary }) {
                 <BsInfoCircleFill />
               </Link>
             ) : (
-              <></>
+              <Fragment></Fragment>
             )}
           </td>
           <td>
@@ -78,26 +78,26 @@ function MirrorList({ summary }) {
           <td>
             <div className="d-flex flex-row align-items-center">
               {status === STATUS_SUCCESS ? (
-                <>
+                <Fragment>
                   <div className="mx-1 text-success">
                     <SvgCheck />
                   </div>
                   <div className="d-none d-sm-block text-success">同步成功</div>
-                </>
+                </Fragment>
               ) : status === STATUS_FAILED ? (
-                <>
+                <Fragment>
                   <div className="mx-1 text-danger">
                     <SvgX />
                   </div>
                   <div className="d-none d-sm-block text-danger">同步失败</div>
-                </>
+                </Fragment>
               ) : (
-                <>
+                <Fragment>
                   <div className="spinner-grow spinner-grow-sm mx-1 text-info"></div>
                   <div className="d-none d-sm-block text-info">
                     {status === STATUS_PENDING ? "等待同步" : "正在同步"}
                   </div>
-                </>
+                </Fragment>
               )}
 
               {/* <span className="d-none d-lg-inline-block">{Storage({key, value})}</span> */}

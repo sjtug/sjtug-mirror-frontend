@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import { LinkContainer } from "react-router-bootstrap";
 import rocket from "./assets/sjtug_rocket.svg";
 import logoText from "./assets/sjtug_text.svg";
+import React from "react";
 
 export default function SJTUGNavBar() {
   return (

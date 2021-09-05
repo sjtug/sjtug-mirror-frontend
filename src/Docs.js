@@ -7,6 +7,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import sortBy from "lodash/sortBy";
 import find from "lodash/find";
 import "./Docs.scss";
+import React, { Fragment } from "react";
 
 import { useParams, Switch, Route } from "react-router-dom";
 
@@ -35,7 +36,7 @@ function Docs() {
   ));
 
   return (
-    <>
+    <Fragment>
       <Navbar />
 
       <Container className="my-5">
@@ -54,7 +55,7 @@ function Docs() {
           </div>
         </Row>
       </Container>
-    </>
+    </Fragment>
   );
 }
 

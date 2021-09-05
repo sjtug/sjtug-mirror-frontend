@@ -2,7 +2,7 @@ import { useMirrorHelp, useMirrorNews, useLugSummary } from "./utils";
 import MirrorList from "./MirrorList";
 import MirrorNews from "./MirrorNews";
 import Navbar from "./Navbar";
-
+import React, { Fragment } from "react";
 import mapValues from "lodash/mapValues";
 import pickBy from "lodash/pickBy";
 import assign from "lodash/assign";
@@ -82,7 +82,7 @@ function Home() {
   const { data: news } = useMirrorNews();
 
   return (
-    <>
+    <Fragment>
       <Navbar />
       <div className="jumbotron jumbotron-fluid bg-transparent">
         <div className="container">
@@ -112,7 +112,7 @@ function Home() {
           </div>
         </Row>
       </div>
-    </>
+    </Fragment>
   );
 }
 

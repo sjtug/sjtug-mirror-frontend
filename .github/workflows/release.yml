@@ -26,14 +26,13 @@ jobs:
     - name: create zip
       run: |
         (cd build && zip -r - .) > dists.zip
-    - name: create release
+    - uses: actions/create-release@latest
       id: create_release
-      uses: actions/create-release@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: untagged-${{ github.sha }}
-        release_name: ${{ github.sha }} - ${{ github.event.head_commit.message }}
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
         body: ${{ github.event.head_commit.message }}
         draft: false
         prerelease: true

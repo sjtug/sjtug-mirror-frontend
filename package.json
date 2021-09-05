@@ -19,11 +19,10 @@
     "react-icons": "^3.11.0",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^4.0.3",
     "rss-parser": "^3.9.0",
     "swr": "^0.3.8",
     "timeago.js": "^4.0.2",
-    "use-dark-mode": "^2.3.1",
     "web-vitals": "^0.2.4"
   },
   "lint-staged": {

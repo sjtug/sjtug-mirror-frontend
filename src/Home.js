@@ -17,6 +17,8 @@ import {
   HIDDEN,
   REVERSE_PROXY,
   MIRROR_INTEL,
+  MIRRORZ_HELP_URL,
+  MIRRORZ_HELP,
 } from "./Data";
 
 function baseOf(server) {
@@ -52,6 +54,12 @@ function transform(status, server) {
       : includes(MIRROR_INTEL, k)
       ? "Intel"
       : server,
+    mirrorz_help: k in MIRRORZ_HELP,
+    mirrorz_help_url:
+      MIRRORZ_HELP_URL +
+      (k in MIRRORZ_HELP ? MIRRORZ_HELP[k] : "") +
+      "/?mirror=SJTUG-" +
+      server,
   }));
 }
 

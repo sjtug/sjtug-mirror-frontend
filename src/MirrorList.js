@@ -66,6 +66,15 @@ function MirrorList({ summary }) {
               <Link className="ml-1" to={`/docs/${key}`}>
                 <BsInfoCircleFill />
               </Link>
+            ) : value.mirrorz_help ? (
+              <a
+                className="ml-1 mirrorz-help"
+                target="_blank"
+                rel="noreferrer"
+                href={value.mirrorz_help_url}
+              >
+                <BsInfoCircleFill />
+              </a>
             ) : (
               <Fragment></Fragment>
             )}

@@ -26,6 +26,13 @@ export const BLOCKED_IN_ZHIYUAN = [
   // "homebrew-bottles",
 ];
 
+export const MIRRORZ_HELP_URL = "https://help.mirrors.cernet.edu.cn/";
+
+// sjtug name => mirrorz cname
+export const MIRRORZ_HELP = {
+  linuxmint: "linuxmint",
+};
+
 // These are legacy reverse proxy repos on Zhiyuan mirror.
 export const REVERSE_PROXY = [
   "docker-registry",

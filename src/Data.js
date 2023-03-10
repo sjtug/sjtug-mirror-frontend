@@ -30,7 +30,19 @@ export const MIRRORZ_HELP_URL = "https://help.mirrors.cernet.edu.cn/";
 
 // sjtug name => mirrorz cname
 export const MIRRORZ_HELP = {
+  cpan: "CPAN",
+  ctan: "CTAN",
+  cygwin: "cygwin",
+  "fedora/epel": "epel",
+  "git/linux.git": "linux.git",
+  "git/llvm-project.git": "llvm-project.git",
+  "git/qemu.git": "qemu.git",
   linuxmint: "linuxmint",
+  manjaro: "manjaro",
+  OpenBSD: "OpenBSD",
+  opensuse: "opensuse",
+  openwrt: "openwrt",
+  rpmfusion: "rpmfusion",
 };
 
 // These are legacy reverse proxy repos on Zhiyuan mirror.

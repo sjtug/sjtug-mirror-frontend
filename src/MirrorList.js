@@ -44,7 +44,6 @@ function Overlay({ key, value }) {
 function MirrorList({ summary }) {
   const rows = sortBy(Object.keys(summary), (k) => k.toLowerCase()).map(
     (key) => {
-      if (/git(hub)*\/.*/.test(key)) return null;
       const value = summary[key];
       const status = getStatus(value);
       return (

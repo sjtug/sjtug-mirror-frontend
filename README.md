@@ -2,11 +2,11 @@
 
 Modern Frontend for software mirrors with backend as [lug](https://github.com/sjtug/lug).
 
-Built with React.
+Built with Next.js.
 
 ## Development
 
-`npm run start` or `npm run build`.
+`pnpm start` or `pnpm build`.
 
 ## License
 

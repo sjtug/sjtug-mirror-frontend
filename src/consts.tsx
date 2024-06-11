@@ -1,3 +1,5 @@
+export const CURRENT_SITE = process.env.NEXT_PUBLIC_SITE_NAME??"Siyuan"
+
 export type LugServer = {
   name: string,
   url: string

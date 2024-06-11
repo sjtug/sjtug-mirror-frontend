@@ -3,6 +3,7 @@ import NextImage from "next/image";
 import classes from "@/app/global.module.css";
 import {IconMail, IconMessageDots} from "@tabler/icons-react";
 import imgSjtug from "@/assets/sjtug.svg"
+import {CURRENT_SITE} from "@/consts";
 
 export const Footer = () => (
   <Stack bg={"var(--mantine-color-footer)"} w={"100%"} py={"xxxl"}>
@@ -14,7 +15,7 @@ export const Footer = () => (
                    w={"100%"} h={"auto"}/>
           </Box>
           <Stack className={classes.textNormal} gap={"xs"} style={{flex: 3}} miw={"min(100%, 15em)"}>
-            <Text fw={700} inherit>SJTUG Siyuan Mirror</Text>
+            <Text fw={700} inherit>SJTUG {CURRENT_SITE} Mirror</Text>
             <Text inherit>由 上海交通大学 Linux 用户组 (SJTUG) 维护</Text>
             <Text inherit>沪交 ICP 备 20180085</Text>
           </Stack>

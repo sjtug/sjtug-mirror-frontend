@@ -1,0 +1,39 @@
+/* For light mode */
+:root[data-mantine-color-scheme="light"] {
+    --mantine-color-success: var(--mantine-color-green-8) !important;
+    --mantine-color-loading: var(--mantine-color-blue-8) !important;
+    --mantine-color-loading-bg: var(--mantine-color-blue-1) !important;
+    --mantine-color-warning: var(--mantine-color-orange-8) !important;
+    --mantine-color-warning-bg: var(--mantine-color-orange-1) !important;
+    --mantine-color-footer: var(--mantine-color-gray-1) !important;
+    --mantine-color-secondary-text: var(--mantine-color-gray-text) !important;
+}
+
+/* For dark mode */
+:root[data-mantine-color-scheme="dark"] {
+    --mantine-color-success: var(--mantine-color-green-4) !important;
+    --mantine-color-loading: var(--mantine-color-blue-4) !important;
+    --mantine-color-loading-bg: #2b3240 !important;
+    --mantine-color-warning: var(--mantine-color-orange-4) !important;
+    --mantine-color-warning-bg: #4a4642 !important;
+    --mantine-color-footer: #484848 !important;
+    --mantine-color-secondary-text: var(--mantine-color-gray-6) !important;
+}
+
+
+:root {
+    /* Override default anchor color */
+    --mantine-color-anchor: var(--text-color) !important;
+}
+
+
+html, main, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0
+}
+
+html {
+    scroll-behavior: smooth;
+}

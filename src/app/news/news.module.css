@@ -1,0 +1,7 @@
+.newsCard {
+    --mantine-color-anchor: var(--mantine-color-blue-text) !important;
+}
+
+.newsTitle {
+    color: var(--mantine-color-yellow-text);
+}

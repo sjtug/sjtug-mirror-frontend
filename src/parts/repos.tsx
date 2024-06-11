@@ -2,7 +2,7 @@
 
 import classes from "@/app/global.module.css";
 import {format, TDate} from "timeago.js"
-import {IconCheck, IconHelp, IconInfoCircleFilled, IconX} from "@tabler/icons-react";
+import {IconCheck, IconHelp, IconX} from "@tabler/icons-react";
 import {
   ActionIcon,
   Anchor,
@@ -67,7 +67,7 @@ const TableEntry = ({name, server, status, lastSync, helpHref, mirrorzHref}: Tab
           {
             mirrorzHref &&
               <ActionIcon variant={"subtle"} color={"#15658a"} size="xs" radius={"xl"} component={Link}
-                          href={MIRRORZ_HELP_URL+mirrorzHref+"/?mirror=SJTUG-"+server} target={"_blank"}>
+                          href={MIRRORZ_HELP_URL + mirrorzHref + "/?mirror=SJTUG-" + server} target={"_blank"}>
                   <IconHelp size={16} stroke={2}/>
               </ActionIcon>
           }

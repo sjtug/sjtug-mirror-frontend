@@ -1,7 +1,8 @@
 import {Anchor, Box, Center, Container, Group, Image, Stack, Text} from "@mantine/core";
+import NextImage from "next/image";
 import classes from "@/app/global.module.css";
 import {IconMail, IconMessageDots} from "@tabler/icons-react";
-import imgSjtugText from "@/assets/sjtug.svg"
+import imgSjtug from "@/assets/sjtug.svg"
 
 export const Footer = () => (
   <Stack bg={"var(--mantine-color-footer)"} w={"100%"} py={"xxxl"}>
@@ -9,7 +10,8 @@ export const Footer = () => (
       <Group align="center" justify={"center"} gap={"xl"}>
         <Group justify={"center"} style={{flex: 3, flexWrap: "nowrap"}} miw={"min(100%, 30em)"}>
           <Box style={{flex: 1}} maw={"20em"} mb={"auto"}>
-            <Image alt={"SJTUG Logo"} src={imgSjtugText} w={"100%"}/>
+            <Image component={NextImage} alt={"SJTUG Logo"} src={imgSjtug} sizes="100vw"
+                   w={"100%"} h={"auto"}/>
           </Box>
           <Stack className={classes.textNormal} gap={"xs"} style={{flex: 3}} miw={"min(100%, 15em)"}>
             <Text fw={700} inherit>SJTUG Siyuan Mirror</Text>

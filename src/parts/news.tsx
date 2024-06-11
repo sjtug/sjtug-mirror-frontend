@@ -1,7 +1,7 @@
-import {Anchor, Box, Group, Stack, Text} from "@mantine/core";
+import {Anchor, Box, Stack, Text} from "@mantine/core";
 import classes from "@/app/global.module.css";
 import {MyAnchor} from "@/components/MyAnchor";
-import {IconExchange, IconExternalLink} from "@tabler/icons-react";
+import {IconExternalLink} from "@tabler/icons-react";
 import {getNews, newsLocatorFromHref} from "@/serverRpcs";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ const NewsEntry = ({title, date, locator}: NewsEntryProps) => (
     <Text className={`${classes.textSmall} ${classes.textSecondary}`}>
       {new Intl.DateTimeFormat("zh-CN").format(date)}
     </Text>
-    <Anchor className={classes.textSmall} href={"news#"+locator}>
+    <Anchor className={classes.textSmall} href={"news#" + locator}>
       <Text inherit>{title}</Text>
     </Anchor>
   </Box>
@@ -48,7 +48,7 @@ export const News = async () => {
       }
 
       <MyAnchor size={"sm"} component={Link} href={"news"} target={"_blank"}
-                rightIcon={<IconExternalLink size={16} stroke={1.5}/> }>
+                rightIcon={<IconExternalLink size={16} stroke={1.5}/>}>
         ... 查看更多
       </MyAnchor>
     </Stack>

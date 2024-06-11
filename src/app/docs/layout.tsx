@@ -1,4 +1,4 @@
-import {Box, Container, Grid, GridCol, Group, Stack} from "@mantine/core";
+import {Box, Container, Grid, GridCol, Group} from "@mantine/core";
 import classes from "@/app/global.module.css";
 import {ReactNode} from "react";
 import {articlesFromHelps, getHelp} from "@/serverRpcs";
@@ -16,7 +16,7 @@ export default async function DocsLayout({
     <Container className={classes.container}>
       <Grid>
         <GridCol span={2} visibleFrom={"md"}>
-          <Box style={{position: "sticky", top:20}} mt={20}>
+          <Box style={{position: "sticky", top: 20}} mt={20}>
             <DocNav articles={articles}/>
           </Box>
         </GridCol>
@@ -24,7 +24,7 @@ export default async function DocsLayout({
         <GridCol span={{base: 12, xs: 10}}>
           <Group hiddenFrom={"md"} style={{position: "sticky", top: 40}} mb={-40}>
             <Box ml={"auto"} mr={"xl"}>
-              <DocSearch articles={articles} variant={"mini"} />
+              <DocSearch articles={articles} variant={"mini"}/>
             </Box>
           </Group>
           {children}

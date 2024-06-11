@@ -1,7 +1,7 @@
 "use client";
 
 import {Ref, useRef} from "react";
-import {getHotkeyHandler, HotkeyItem, mergeRefs, useHotkeys} from "@mantine/hooks";
+import {getHotkeyHandler, mergeRefs, useHotkeys} from "@mantine/hooks";
 import {Badge, TextInput, TextInputProps} from "@mantine/core";
 import {IconSearch} from "@tabler/icons-react";
 import classes from "@/app/global.module.css";

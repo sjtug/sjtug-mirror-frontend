@@ -17,7 +17,7 @@ export const DocNav = ({articles}: DocNavProps) => {
   return (
     <>
       <Box my={"sm"}>
-        <DocSearch articles={articles} variant={"full"} />
+        <DocSearch articles={articles} variant={"full"}/>
       </Box>
       {/*<Box style={{position: "sticky", top: 0}} p={"md"} bg={"var(--mantine-color-body)"}>*/}
       {/*  <DocSearch articles={articles} variant={"full"} />*/}

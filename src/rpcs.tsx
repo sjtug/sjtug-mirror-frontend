@@ -31,8 +31,14 @@ const castFetcher = <T, >(fetcher: Fetcher<T, string>) => fetcher;
 type FetcherArray<T extends any[], U extends Key> = { [K in keyof T]: Fetcher<T[K], U> };
 type ResultArray<T extends any[]> = { [K in keyof T]: T[K] };
 
-const liftFetchers = <T extends any[], U extends Key>(fetchers: FetcherArray<T, U>): Fetcher<ResultArray<T>, U[]> => {
+const liftFetchers = <T extends any[], U extends Key>(fetchers: FetcherArray<T, U>, ignoreError: boolean): Fetcher<ResultArray<T>, U[]> => {
   return async (inputs: U[]) => {
+    if (ignoreError) {
+      // @ts-ignore
+      const tryResults = await Promise.all(fetchers.map((fetcher, index) => fetcher(inputs[index]).catch(e => e)));
+      const results = tryResults.filter((x) => !(x instanceof Error));
+      return results as ResultArray<T>;
+    }
     // @ts-ignore
     const results = await Promise.all(fetchers.map((fetcher, index) => fetcher(inputs[index])));
     return results as ResultArray<T>;
@@ -57,7 +63,7 @@ export const useLugReport = () => {
     error,
     isLoading,
     isValidating
-  } = useSWR(LUG_SERVERS, liftFetchers(LUG_SERVERS.map(() => lugFetcher)))
+  } = useSWR(LUG_SERVERS, liftFetchers(LUG_SERVERS.map(() => lugFetcher), true))
   const mergedData = useMemo(() => {
       const merged = data?.map((data) => data.WorkerStatus).reduce((prev, x) => ({...prev, ...x}))
       if (merged !== undefined) {
@@ -78,7 +84,7 @@ export const useError = (error: any) => {
         color: "red",
         title: "出错了",
         icon: <IconX/>,
-        message: error,
+        message: error.toString(),
       })
     }
   }, [error]);

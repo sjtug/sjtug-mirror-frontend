@@ -28,6 +28,8 @@ const SECTIONS: Item[][] = [
     ["rsync-sjtug 对象存储同步工具", "https://github.com/sjtug/rsync-sjtug"],
     ["SJTUThesis LaTeX 模版", "https://github.com/sjtug/SJTUThesis"],
     ["SJTUBeamer LaTeX 模版", "https://github.com/sjtug/SJTUBeamer"],
+    ["modern-sjtu-thesis Typst 模版", "https://github.com/sjtug/modern-sjtu-thesis"],
+    ["touying-sjtu Typst 模版", "https://github.com/sjtug/touying-sjtu"],
   ],
 ];
 

@@ -1,0 +1,31 @@
+---
+import ExternalLink from "@/components/ExternalLink.astro";
+import { newsLocatorFromHref } from "@/lib/serverData";
+import type Parser from "rss-parser";
+
+interface Props {
+  items: Parser.Item[];
+  errorMessage?: string;
+}
+
+const { items, errorMessage } = Astro.props;
+---
+
+<section class="panel">
+  <p class="text-title">镜像源新闻</p>
+  {
+    errorMessage ? (
+      <p class="error">加载失败：{errorMessage}</p>
+    ) : (
+      <div class="news-list">
+        {items.map((item) => (
+          <a class="news-entry" href={`/news#${newsLocatorFromHref(item.link ?? "")}`}>
+            <span class="text-small text-secondary">{new Intl.DateTimeFormat("zh-CN").format(new Date(item.isoDate ?? ""))}</span>
+            <span class="text-small">{item.title ?? "无题"}</span>
+          </a>
+        ))}
+      </div>
+    )
+  }
+  <ExternalLink class="more-link" href="/news">... 查看更多</ExternalLink>
+</section>

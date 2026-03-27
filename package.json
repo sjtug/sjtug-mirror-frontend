@@ -3,35 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint src --ext .ts,.tsx,.astro"
   },
   "dependencies": {
-    "@mantine/core": "^7.10.0",
-    "@mantine/hooks": "^7.10.0",
-    "@mantine/notifications": "^7.10.1",
-    "@mantine/spotlight": "^7.10.1",
-    "@tabler/icons-react": "^3.5.0",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
+    "@astrojs/node": "^10.0.4",
+    "@astrojs/solid-js": "^6.0.1",
+    "astro": "^6.1.1",
     "rss-parser": "^3.13.0",
-    "swr": "^2.2.5",
+    "solid-js": "^1.9.12",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
-    "postcss": "^8.4.38",
-    "postcss-color-function": "^4.1.0",
-    "postcss-custom-properties": "^13.3.10",
-    "postcss-preset-mantine": "^1.15.0",
+    "@astrojs/check": "^0.9.8",
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
+    "astro-eslint-parser": "^1.4.0",
+    "eslint": "^10.1.0",
+    "eslint-plugin-astro": "^1.6.0",
+    "postcss": "^8.5.8",
+    "postcss-custom-properties": "^15.0.1",
     "postcss-simple-vars": "^7.0.1",
-    "typescript": "^5"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.2"
   }
 }

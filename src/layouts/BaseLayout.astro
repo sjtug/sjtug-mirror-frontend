@@ -1,0 +1,34 @@
+---
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "上海交通大学 Linux 用户组 软件源镜像服务",
+  description = "上海交通大学 Linux 用户组 软件源镜像服务",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <div class="page">
+      <Navbar />
+      <main class="content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

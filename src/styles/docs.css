@@ -1,0 +1,31 @@
+.docs-content {
+  --docs-anchor: #1565c0;
+}
+
+.docs-content a {
+  color: var(--docs-anchor);
+}
+
+.docs-content pre {
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.docs-content pre code {
+  border: 0;
+  border-radius: 0.2rem;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.25;
+  overflow: auto;
+  padding: 0.75rem;
+  white-space: inherit;
+  word-wrap: normal;
+}
+
+.docs-content code {
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  padding: 0.2em 0;
+  overflow-wrap: break-word;
+}

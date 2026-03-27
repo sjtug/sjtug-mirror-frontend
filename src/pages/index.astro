@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Banner from "@/components/Banner.astro";
+import NewsPreview from "@/components/NewsPreview.astro";
+import RelLinks from "@/components/RelLinks.astro";
+import RepoTable from "@/components/RepoTable";
+import { articleMapFromArticles, articlesFromHelps, getHelp, getNews } from "@/lib/serverData";
+import type Parser from "rss-parser";
+
+let articleMap = {};
+let newsItems: Parser.Item[] = [];
+let newsErrorMessage: string | undefined;
+
+const [helpResult, newsResult] = await Promise.allSettled([
+  getHelp().then((helps) => articleMapFromArticles(articlesFromHelps(helps))),
+  getNews().then((news) => news.items.slice(0, 5)),
+]);
+
+if (helpResult.status === "fulfilled") {
+  articleMap = helpResult.value;
+} else {
+  console.error("Failed to fetch help feed for home page", helpResult.reason);
+}
+
+if (newsResult.status === "fulfilled") {
+  newsItems = newsResult.value;
+} else {
+  const error = newsResult.reason;
+  newsErrorMessage = error instanceof Error ? error.message : String(error);
+  console.error("Failed to fetch news feed for home page", error);
+}
+---
+
+<BaseLayout>
+  <Banner />
+  <div class="container home-grid">
+    <section>
+      <RepoTable articleMap={articleMap} client:load />
+    </section>
+    <aside class="section-stack">
+      <NewsPreview items={newsItems} errorMessage={newsErrorMessage} />
+      <RelLinks />
+    </aside>
+  </div>
+</BaseLayout>

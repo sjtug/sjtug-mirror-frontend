@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import DocNav from "@/components/DocNav";
+import { articlesFromHelps, getHelp } from "@/lib/serverData";
+import type { Article } from "@/types";
+import "@/styles/docs.css";
+
+const repoParam = Astro.params.repo ?? "";
+const repo = decodeURIComponent(repoParam);
+
+let articles: Article[] = [];
+let errorMessage: string | undefined;
+let content = "";
+
+try {
+  const helps = await getHelp();
+  articles = articlesFromHelps(helps);
+  const help = helps.items.find((item) => item.title === repo);
+  content = help?.content ?? "";
+} catch (error) {
+  errorMessage = error instanceof Error ? error.message : String(error);
+  console.error("Failed to fetch help feed for docs page", error);
+}
+---
+
+<BaseLayout title={`${repo} - 软件源镜像服务文档`}>
+  <div class="container docs-layout">
+    <aside class="docs-sidebar">
+      <DocNav articles={articles} currentRepo={repo} mode="desktop" client:load />
+    </aside>
+    <section class="docs-main">
+      <div class="docs-mobile">
+        <DocNav articles={articles} currentRepo={repo} mode="mobile" client:load />
+      </div>
+      {
+        errorMessage ? (
+          <p class="error">加载失败：{errorMessage}</p>
+        ) : (
+          <>
+            <h1>{repo}</h1>
+            <div class="docs-content" set:html={content} />
+          </>
+        )
+      }
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getNews, newsLocatorFromHref } from "@/lib/serverData";
+
+let errorMessage: string | undefined;
+let items: Awaited<ReturnType<typeof getNews>>["items"] = [];
+
+try {
+  const news = await getNews();
+  items = news.items;
+} catch (error) {
+  errorMessage = error instanceof Error ? error.message : String(error);
+  console.error("Failed to fetch news feed for news page", error);
+}
+---
+
+<BaseLayout title="镜像站新闻 - 上海交通大学 Linux 用户组 软件源镜像服务">
+  <div class="container news-page">
+    <h1>镜像站新闻</h1>
+    {
+      errorMessage ? (
+        <p class="error">加载失败：{errorMessage}</p>
+      ) : (
+        items.map((item) => {
+          const locator = newsLocatorFromHref(item.link ?? "");
+          return (
+            <article id={locator} class="news-card">
+              <h2>
+                <a href={`#${locator}`}>{item.title ?? "无题"}</a>
+              </h2>
+              <div class="news-content" set:html={item.content ?? "N/A"} />
+              <p class="news-divider">
+                以上新闻发布于 {new Intl.DateTimeFormat("zh-CN").format(new Date(item.isoDate ?? ""))}
+              </p>
+            </article>
+          );
+        })
+      )
+    }
+  </div>
+</BaseLayout>

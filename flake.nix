@@ -88,6 +88,7 @@
             eclint.enable = true;
             eslint.enable = true;
             treefmt.enable = true;
+            zizmor.enable = true;
           };
 
           devShells.default = pkgs.mkShell {

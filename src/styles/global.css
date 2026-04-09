@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root,
 :root[data-color-scheme="light"] {
   --color-body: #ffffff;
@@ -97,7 +101,6 @@ a {
   width: 100%;
   max-width: 65em;
   margin: 0 auto;
-  box-sizing: border-box;
   padding-left: 1rem;
   padding-right: 1rem;
 }

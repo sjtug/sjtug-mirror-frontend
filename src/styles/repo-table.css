@@ -21,12 +21,10 @@
   line-height: 2.125rem;
   font-size: var(--font-size-sm);
   border-radius: var(--radius-sm);
-  padding-inline: 2.125rem;
+  padding-inline-start: 2.125rem;
+  padding-inline-end: 3.75rem;
   padding-block: 0;
   cursor: text;
-
-  box-sizing: border-box;
-  /* padding: 0.5rem 0.75rem; */
 }
 
 .search-input::placeholder {
@@ -90,6 +88,7 @@
   text-overflow: ellipsis;
   border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--color-yellow-text) 10%, transparent);
+  border: 0.0625rem solid transparent;
   color: var(--color-yellow-text);
   pointer-events: none;
 }

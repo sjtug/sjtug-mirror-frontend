@@ -110,7 +110,9 @@ const RepoTable = (props: RepoTableProps) => {
       <div class="row-between">
         <p class="text-title">镜像列表</p>
         <div class="search-wrapper">
-          <SearchIcon class="search-icon" />
+          <div class="search-icon">
+            <SearchIcon />
+          </div>
           <input
             ref={(el) => {
               searchRef = el;
@@ -127,7 +129,9 @@ const RepoTable = (props: RepoTableProps) => {
             }}
             aria-label="搜索镜像仓库"
           />
-          <kbd class="search-badge">⌘ + {SEARCH_KEY.toUpperCase()}</kbd>
+          <div class="search-badge">
+            <kbd>⌘ + {SEARCH_KEY.toUpperCase()}</kbd>
+          </div>
         </div>
       </div>
 

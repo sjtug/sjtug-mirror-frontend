@@ -2,25 +2,40 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.row-between > :nth-child(2) {
-  margin-left: auto;
+  justify-content: space-between;
 }
 
 .search-input {
-  border: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: inherit;
-  box-sizing: border-box;
-  padding: 0.5rem 0.75rem;
-  font-size: var(--font-size-md);
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  resize: none;
+  display: block;
   width: 100%;
+  transition: border-color .1s ease;
+  color: var(--color-text);
+  border: .0625rem solid var(--color-gray-4);
+  background-color: var(--color-dark-6);
+  font-family: inherit;
+  height: 2.25rem;
+  min-height: 2.25rem;
+  line-height: 2.125rem;
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+  padding-inline: 2.125rem;
+  padding-block: 0;
+  cursor: text;
+
+  box-sizing: border-box;
+  /* padding: 0.5rem 0.75rem; */
+}
+
+.search-input::placeholder {
+  color: var(--color-placeholder);
 }
 
 .search-input:focus {
   outline: none;
+  border-color: var(--color-primary-filled);
   box-shadow: var(--shadow-sm);
 }
 
@@ -28,37 +43,53 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  width: min(100%, 18rem);
+  width: min(100%, 200px);
 }
 
-.search-wrapper .search-input {
-  width: 100%;
-  padding-left: 2rem;
-  padding-right: 3.5rem;
-}
-
-.search-icon {
+.search-icon, .search-badge {
   position: absolute;
-  left: 0.5rem;
-  width: 1em;
-  height: 1em;
+  z-index: 1;
   pointer-events: none;
+  top: 0.0625rem;
+  bottom: 0.0625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-icon {
+  width: 2.125rem;
+  inset-inline-start: 0.0625rem;
+}
+.search-icon svg {
+  width: 16px;
+  height: 16px;
   stroke: var(--color-gray-6);
-  stroke-width: 2;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
 }
 
 .search-badge {
-  position: absolute;
-  right: 0.5rem;
+  width: 3.75rem;
+  inset-inline-end: 0.0625rem;
+}
+.search-badge kbd {
+  width: fit-content;
+  height: 1.25rem;
   font-family: inherit;
-  font-size: 0.75rem;
-  line-height: 1;
-  padding: 0.2rem 0.4rem;
+  font-size: 0.6875rem;
+  line-height: 1.125rem;
+  padding: 0 0.625rem;
+  letter-spacing: 0.015625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--color-yellow-text) 18%, transparent);
+  background: color-mix(in srgb, var(--color-yellow-text) 10%, transparent);
   color: var(--color-yellow-text);
   pointer-events: none;
 }

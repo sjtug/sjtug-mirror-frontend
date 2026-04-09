@@ -52,8 +52,8 @@
 @media (prefers-color-scheme: dark) {
   :root,
   :root[data-color-scheme="dark"] {
-    --color-body: #1a1b1e;
-    --color-text: #e9ecef;
+    --color-body: #242424;
+    --color-text: #c9c9c9;
     --color-anchor: var(--color-text);
     --color-blue-text: #74c0fc;
     --color-yellow-text: #ffd43b;
@@ -80,8 +80,8 @@
 
     --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.45);
 
-    --gradient-from: #fcc419;
-    --gradient-to: #ff922b;
+    --gradient-from: #f08c00;
+    --gradient-to: #e8509c;
   }
 }
 

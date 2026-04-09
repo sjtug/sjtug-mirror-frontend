@@ -24,10 +24,10 @@ Environment variables:
     - Default: `3000`.
 - `HOST`: Server listen host.
     - Default: `0.0.0.0` in container builds, otherwise unspecified.
-- `PUBLIC_SITE_NAME`: Which LUG server to display by default. Must match a `name` in `LUG_SERVERS` (e.g. `"Siyuan"`, `"Zhiyuan"`).
-    - Default: `"Siyuan"`.
+- `PUBLIC_SITE_NAME`: Which LUG server to display by default. Must match a `name` in `LUG_SERVERS` (e.g. `Siyuan`, `Zhiyuan`).
+    - Default: `Siyuan`.
 - `NODE_ENV`: Refer to Node.js manual.
-- `ASTRO_BUNDLE_NODE_MODULES`: Set to `"1"` to bundle all dependencies into the server output, producing a self-contained `dist/` without `node_modules`.
+- `ASTRO_BUNDLE_NODE_MODULES`: Set to `1` to bundle all dependencies into the server output, producing a self-contained `dist/` without `node_modules`.
 - `ASTRO_TELEMETRY_DISABLED`: Set to `1` to disable Astro telemetry.
 
 ## Maintenance Guideline

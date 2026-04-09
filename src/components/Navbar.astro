@@ -3,14 +3,65 @@ import imgSjtugRocket from "@/assets/sjtug_rocket.svg";
 import imgSjtugText from "@/assets/sjtug_text.svg";
 ---
 
-<header class="navbar">
-  <div class="container">
-    <a class="brand" href="/">
-      <span class="logo">
-        <img class="logo-rocket" src={imgSjtugRocket.src} alt="SJTUG Logo" />
-        <img class="logo-text" src={imgSjtugText.src} alt="SJTUG" />
-      </span>
-      <span class="logo-title">软件源镜像服务</span>
-    </a>
-  </div>
+<header class="container">
+  <a class="brand" href="/">
+    <span class="logo">
+      <img class="logo-rocket" src={imgSjtugRocket.src} alt="SJTUG Logo" />
+      <img class="logo-text" src={imgSjtugText.src} alt="SJTUG" />
+    </span>
+    <span class="logo-title">软件源镜像服务</span>
+  </a>
 </header>
+
+<style>
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  color: inherit;
+  text-decoration: inherit;
+  display: inline-block;
+  text-align: center;
+}
+
+.logo {
+  background-image: linear-gradient(315deg, #ffdb3c, #ffa600);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.5rem 0.15rem 0.25rem;
+}
+
+.logo,
+.logo-rocket,
+.logo-text,
+.logo-title {
+  display: inline-block;
+}
+
+.logo-rocket,
+.logo-title {
+  vertical-align: middle;
+}
+
+.logo-text {
+  vertical-align: bottom;
+}
+
+.logo-rocket {
+  height: 1.875rem;
+  width: auto;
+}
+
+.logo-text {
+  height: 1.5625rem;
+  width: auto;
+}
+
+.logo-title {
+  margin-left: 0.5rem;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  font-weight: 700;
+}
+</style>

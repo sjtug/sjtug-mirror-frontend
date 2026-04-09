@@ -16,9 +16,9 @@ const {
 } = Astro.props;
 ---
 
-<a class={`external-link ${className}`.trim()} href={href} target={target} rel={rel} aria-label={ariaLabel}>
+<a class={`link--plain link--external ${className}`.trim()} href={href} target={target} rel={rel} aria-label={ariaLabel}>
   <slot />
-  <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M14 5h5v5" />
     <path d="M19 5L10 14" />
     <path d="M19 13v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4" />

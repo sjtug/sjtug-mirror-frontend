@@ -1,0 +1,47 @@
+.docs-nav {
+  padding: 0;
+}
+
+.docs-nav-list {
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.docs-nav-list li {
+  margin: 0;
+}
+
+.docs-link {
+  display: block;
+  font-size: var(--font-size-md);
+  padding: 0.45rem 0.5rem;
+  border-radius: var(--radius-sm);
+  overflow-wrap: anywhere;
+  text-decoration: inherit;
+}
+
+.docs-link:hover {
+  background: color-mix(in srgb, var(--color-yellow-text) 18%, transparent);
+}
+
+.docs-link.active {
+  background: color-mix(in srgb, var(--color-yellow-text) 28%, transparent);
+  font-weight: 700;
+}
+
+.docs-mobile-toggle {
+  border: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
+  border-radius: 999px;
+  background: var(--color-body);
+  color: inherit;
+  padding: 0.45rem 0.9rem;
+  box-shadow: var(--shadow-md);
+}
+
+.docs-mobile-panel {
+  margin-top: 0.5rem;
+  width: min(24rem, 100%);
+}

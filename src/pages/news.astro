@@ -39,3 +39,45 @@ try {
     }
   </div>
 </BaseLayout>
+
+<style>
+.news-page {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.news-page h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+}
+
+.news-card {
+  margin-bottom: 2.25rem;
+}
+
+.news-card h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.news-card h2 a {
+  color: var(--color-yellow-text);
+}
+
+.news-content {
+  margin-top: 0.8rem;
+  --color-anchor: var(--color-blue-text);
+}
+
+.news-content a {
+  color: var(--color-blue-text);
+}
+
+.news-divider {
+  margin-top: 1rem;
+  color: var(--color-secondary-text);
+  font-size: var(--font-size-md);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent);
+  padding-top: 0.8rem;
+}
+</style>

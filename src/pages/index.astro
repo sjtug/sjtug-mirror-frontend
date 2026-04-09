@@ -43,3 +43,25 @@ if (newsResult.status === "fulfilled") {
     </aside>
   </div>
 </BaseLayout>
+
+<style>
+.home-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
+@media (min-width: 62em) {
+  .home-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
+  }
+}
+
+.section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+</style>

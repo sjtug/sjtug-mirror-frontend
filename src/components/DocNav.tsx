@@ -1,6 +1,8 @@
 import { For, Show, createMemo, createSignal } from "solid-js";
 import type { Article } from "@/types";
 
+import "@/styles/doc-nav.css";
+
 interface DocNavProps {
   articles: Article[];
   currentRepo: string;

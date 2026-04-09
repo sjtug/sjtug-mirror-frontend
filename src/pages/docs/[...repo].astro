@@ -45,3 +45,53 @@ try {
     </section>
   </div>
 </BaseLayout>
+
+<style>
+.docs-layout {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 62em) {
+  .docs-layout {
+    grid-template-columns: minmax(10rem, 2fr) minmax(0, 10fr);
+  }
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 1.25rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  display: none;
+}
+
+@media (min-width: 62em) {
+  .docs-sidebar {
+    display: block;
+  }
+}
+
+.docs-mobile {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 8;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 62em) {
+  .docs-mobile {
+    display: none;
+  }
+}
+
+.docs-main h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 300;
+}
+</style>

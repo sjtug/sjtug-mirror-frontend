@@ -6,6 +6,8 @@ import type { ArticleMap, } from "@/lib/serverData";
 import type { Repo, RepoSummary } from "@/types";
 import { CheckIcon, CloseIcon, HelpCircleIcon, SearchIcon, SpinnerIcon } from "@/components/icons";
 
+import "@/styles/repo-table.css";
+
 enum RepoStatus {
   SUCCESS,
   LOADING,

@@ -35,3 +35,79 @@ import { CURRENT_SITE } from "@/config";
     </section>
   </div>
 </footer>
+
+<style>
+.footer {
+  margin-top: 3rem;
+  background: var(--color-footer);
+  padding: 4rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 62em) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  }
+}
+
+.footer-brand {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 48em) {
+  .footer-brand {
+    grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+  }
+}
+
+.footer-brand img {
+  width: 100%;
+  max-width: 12rem;
+  height: auto;
+}
+
+.footer-brand p {
+  margin: 0.25rem 0;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+@media (min-width: 48em) {
+  .footer-brand p {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--font-size-md);
+  text-decoration: inherit;
+}
+
+.footer-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+</style>

@@ -12,10 +12,10 @@ In the case of containerized usage, refer to `Dockerfile` or `docker.nix`. For e
 
 ```sh
 # Start frontend with Docker daemon
-nix run .#docker-image.copyToDockerDaemon && docker run --rm mirror-frontend:latest
+nix run '.#docker-image.copyToDockerDaemon' && docker run --rm mirror-frontend:latest
 
 # Start frontend with Podman
-nix run .#docker-image.copyToPodman && podman run --rm mirror-frontend:latest
+nix run '.#docker-image.copyToPodman' && podman run --rm mirror-frontend:latest
 ```
 
 Environment variables:

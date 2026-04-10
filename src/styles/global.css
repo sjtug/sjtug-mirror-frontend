@@ -193,7 +193,8 @@ a:focus-visible {
   stroke: #15658a;
 }
 
-.link--external {
-  display: inline-flex;
-  align-items: center;
+@media (max-width: 47.9938em) {
+  .visible-from-sm {
+    display: none !important;
+  }
 }

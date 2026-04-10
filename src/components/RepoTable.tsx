@@ -154,7 +154,9 @@ const RepoTable = (props: RepoTableProps) => {
             <tr>
               <th class="name">名称</th>
               <th>上次同步</th>
-              <th>状态</th>
+              <th>
+                <span class="visible-from-sm">状态</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -206,7 +208,7 @@ const RepoTable = (props: RepoTableProps) => {
                     <td>
                       <span class={`status ${meta.className}`}>
                         <StatusIcon status={status} />
-                        {meta.text}
+                        <span class="visible-from-sm">{meta.text}</span>
                       </span>
                     </td>
                   </tr>

@@ -19,10 +19,10 @@ const { items, errorMessage } = Astro.props;
     ) : (
       <div class="news-list">
         {items.map((item) => (
-          <a class="news-entry" href={`/news#${newsLocatorFromHref(item.link ?? "")}`}>
+          <div class="news-entry">
             <span class="text-small text-secondary">{new Intl.DateTimeFormat("zh-CN").format(new Date(item.isoDate ?? ""))}</span>
-            <span class="text-small">{item.title ?? "无题"}</span>
-          </a>
+            <a class="text-small" href={`/news#${newsLocatorFromHref(item.link ?? "")}`}>{item.title ?? "无题"}</a>
+          </div>
         ))}
       </div>
     )

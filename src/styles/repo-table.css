@@ -221,6 +221,9 @@
 .icon-link:hover {
   background-color: var(--color-yellow-light-hover);
 }
+.icon-link.external:hover {
+  background-color: rgba(21, 101, 138, 0.12);
+}
 
 .skeleton-stack {
   display: flex;

@@ -50,15 +50,10 @@ footer {
 
 .footer-grid {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
   justify-content: center;
-}
-
-@media (min-width: 62em) {
-  .footer-grid {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
-  }
 }
 
 .footer-brand {
@@ -67,12 +62,7 @@ footer {
   gap: 1rem;
   align-items: center;
   justify-content: center;
-}
-
-@media (min-width: 48em) {
-  .footer-brand {
-    grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
-  }
+  min-width: min(100%, 30em);
 }
 
 .footer-brand img {
@@ -80,6 +70,7 @@ footer {
   width: 100%;
   max-width: 20em;
   height: auto;
+  margin-bottom: auto;
 }
 .footer-brand > div {
   flex: 3;

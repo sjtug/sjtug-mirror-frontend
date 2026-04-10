@@ -9,7 +9,7 @@
   --color-anchor: var(--color-text);
   --color-blue-text: #1565c0;
   --color-yellow-text: #fab005;
-  --color-gray-text: #5c5f66;
+  --color-gray-text: #868e96;
   --color-gray-1: #f8f9fa;
   --color-gray-4: #ced4da;
   --color-gray-6: #868e96;
@@ -37,8 +37,8 @@
   --font-size-xl: 1.5rem;
   --font-size-xxl: 2.25rem;
   --font-size-xxxl: 2.75rem;
-  --line-height-sm: 1.4;
-  --line-height-md: 1.5;
+  --line-height-sm: 1.45;
+  --line-height-md: 1.55;
   --line-height-lg: 1.55;
   --line-height-xl: 1.65;
 
@@ -61,7 +61,7 @@
     --color-anchor: var(--color-text);
     --color-blue-text: #74c0fc;
     --color-yellow-text: #ffd43b;
-    --color-gray-text: #adb5bd;
+    --color-gray-text: #868e96;
     --color-gray-1: #484848;
     --color-gray-4: #424242;
     --color-gray-6: #868e96;
@@ -117,13 +117,18 @@ a {
   }
 }
 
-.panel {
+.panel, .subpanel {
   background: transparent;
   border: 0;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+.panel.panel--stack {
+  gap: 2rem;
+}
+.panel {
+  padding: 1rem;
 }
 
 .text-title {
@@ -141,7 +146,7 @@ a {
   }
 }
 
-.text-small {
+.text-small, .text-always-small {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-sm);
 }
@@ -159,11 +164,11 @@ a {
 }
 
 .icon-svg {
-  width: 1em;
-  height: 1em;
+  width: 16px;
+  height: 16px;
   fill: none;
   stroke: var(--color-yellow-text);
-  stroke-width: 2;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -179,6 +184,4 @@ a {
 .link--external {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: var(--font-size-sm);
 }

@@ -37,7 +37,7 @@ if (newsResult.status === "fulfilled") {
     <section>
       <RepoTable articleMap={articleMap} client:load />
     </section>
-    <aside class="section-stack">
+    <aside class="section-stack panel panel--stack">
       <NewsPreview items={newsItems} errorMessage={newsErrorMessage} />
       <RelLinks />
     </aside>
@@ -56,11 +56,5 @@ if (newsResult.status === "fulfilled") {
   .home-grid {
     grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
   }
-}
-
-.section-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 }
 </style>

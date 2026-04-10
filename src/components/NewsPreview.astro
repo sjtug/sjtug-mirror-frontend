@@ -11,7 +11,7 @@ interface Props {
 const { items, errorMessage } = Astro.props;
 ---
 
-<section class="panel">
+<section class="subpanel">
   <p class="text-title">镜像源新闻</p>
   {
     errorMessage ? (
@@ -27,7 +27,7 @@ const { items, errorMessage } = Astro.props;
       </div>
     )
   }
-  <ExternalLink class="link--plain link--external" href="/news">... 查看更多</ExternalLink>
+  <ExternalLink class="text-always-small" href="/news">... 查看更多</ExternalLink>
 </section>
 
 <style>

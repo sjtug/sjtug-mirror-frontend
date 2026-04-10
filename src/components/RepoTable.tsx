@@ -176,29 +176,31 @@ const RepoTable = (props: RepoTableProps) => {
                 return (
                   <tr classList={{ "row-loading": status === RepoStatus.LOADING, "row-failure": status === RepoStatus.FAILURE }}>
                     <td class="name">
-                      <a href={name}>{name}</a>
-                      <span class="inline-links">
-                        <Show when={helpHref}>
-                          {(href) => (
-                            <a class="icon-link" href={href()} aria-label={`查看 ${name} 帮助文档`}>
-                              <HelpCircleIcon class="icon-svg" />
-                            </a>
-                          )}
-                        </Show>
-                        <Show when={mirrorz}>
-                          {(mirrorzSlug) => (
-                            <a
-                              class="icon-link external"
-                              href={`${MIRRORZ_HELP_URL}${mirrorzSlug()}/?mirror=SJTUG-${repo.server}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              aria-label={`查看 ${name} mirrorz 帮助文档`}
-                            >
-                              <HelpCircleIcon class="icon-svg" />
-                            </a>
-                          )}
-                        </Show>
-                      </span>
+                      <div>
+                        <a href={name}>{name}</a>
+                        <span class="inline-links">
+                          <Show when={helpHref}>
+                            {(href) => (
+                              <a class="icon-link" href={href()} aria-label={`查看 ${name} 帮助文档`}>
+                                <HelpCircleIcon class="icon-svg" />
+                              </a>
+                            )}
+                          </Show>
+                          <Show when={mirrorz}>
+                            {(mirrorzSlug) => (
+                              <a
+                                class="icon-link external"
+                                href={`${MIRRORZ_HELP_URL}${mirrorzSlug()}/?mirror=SJTUG-${repo.server}`}
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label={`查看 ${name} mirrorz 帮助文档`}
+                              >
+                                <HelpCircleIcon class="icon-svg" />
+                              </a>
+                            )}
+                          </Show>
+                        </span>
+                      </div>
                     </td>
                     <td>{lastSync}</td>
                     <td>

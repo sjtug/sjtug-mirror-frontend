@@ -20,7 +20,6 @@
   padding: 0.45rem 0.5rem;
   border-radius: var(--radius-sm);
   overflow-wrap: anywhere;
-  text-decoration: inherit;
 }
 
 .docs-link:hover {

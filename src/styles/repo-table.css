@@ -96,16 +96,29 @@
 .repo-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 0.5rem;
+}
+
+.repo-table thead {
+  position: sticky;
+  background-color: var(--color-body);
+  z-index: 1;
+  top: 0;
+}
+
+.repo-table tr:hover {
+  background-color: var(--color-hover-bg);
 }
 
 .repo-table th,
 .repo-table td {
-  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent);
-  padding: 0.45rem 0.2rem;
+  padding: 0.25rem 0.625rem;
   font-size: var(--font-size-md);
+  line-height: 1.55;
   text-align: left;
   vertical-align: top;
+}
+.repo-table td {
+  border-bottom: 1px solid var(--color-border);
 }
 
 .repo-table .name {
@@ -113,9 +126,10 @@
   max-width: 0;
   width: 50%;
 }
-
-.repo-table a {
-  text-decoration: none;
+.repo-table .name > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 @media (min-width: 36em) {
@@ -124,10 +138,13 @@
   }
 }
 
+.repo-table .icon-svg {
+  stroke-width: 2;
+}
+
 .status {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.35rem;
   font-weight: 500;
 }
 
@@ -144,27 +161,34 @@
 }
 
 .status-icon {
-  width: 1.1em;
-  height: 1.1em;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   transform-origin: 50% 50%;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2.2;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .status-icon.loading {
-  animation: status-spin 0.9s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.status-spinner-track {
-  opacity: 0.25;
-}
-
-.status-spinner-head {
-  stroke-width: 2.4;
+.spinner-icon::after {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: block;
+  border-radius: 625rem;
+  border-width: 0.125rem;
+  border-style: solid;
+  border-color: var(--color-loading) var(--color-loading) var(--color-loading) transparent;
+  animation: status-spin 1.2s linear infinite;
 }
 
 .row-loading {
@@ -179,7 +203,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  margin-left: 0.25rem;
 }
 
 .icon-link {
@@ -187,9 +210,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1rem;
-  height: 1rem;
+  width: 18px;
+  height: 18px;
+  line-height: 1;
+  border-radius: 2rem;
   opacity: 0.9;
+}
+.icon-link:hover {
+  background-color: var(--color-yellow-light-hover);
 }
 
 .skeleton-stack {

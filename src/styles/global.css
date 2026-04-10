@@ -9,16 +9,18 @@
   --color-anchor: var(--color-text);
   --color-blue-text: #1565c0;
   --color-yellow-text: #fab005;
+  --color-yellow-light: #fab005;
+  --color-yellow-light-hover: rgba(250,176,5,.12);
   --color-gray-text: #868e96;
   --color-gray-1: #f8f9fa;
   --color-gray-4: #ced4da;
   --color-gray-6: #868e96;
-  --color-green-8: #2b8a3e;
+  --color-green-8: #2f9e44;
   --color-dark-6: #fff;
-  --color-blue-8: #1864ab;
-  --color-blue-1: #e7f5ff;
-  --color-orange-8: #d9480f;
-  --color-orange-1: #fff4e6;
+  --color-blue-8: #1971c2;
+  --color-blue-1: #d0ebff;
+  --color-orange-8: #e8590c;
+  --color-orange-1: #ffe8cc;
 
   --color-success: var(--color-green-8);
   --color-loading: var(--color-blue-8);
@@ -29,6 +31,8 @@
   --color-secondary-text: var(--color-gray-text);
   --color-placeholder: #adb5bd;
   --color-primary-filled: #fab005;
+  --color-hover-bg: #f1f3f5;
+  --color-border: #dee2e6;
 
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
@@ -61,19 +65,21 @@
     --color-anchor: var(--color-text);
     --color-blue-text: #74c0fc;
     --color-yellow-text: #ffd43b;
+    --color-yellow-light: #ffe066;
+    --color-yellow-light-hover: rgba(250,176,5,.2);
     --color-gray-text: #868e96;
     --color-gray-1: #484848;
     --color-gray-4: #424242;
     --color-gray-6: #868e96;
     --color-dark-6: #2e2e2e;
-    --color-green-8: #40c057;
-    --color-blue-8: #4dabf7;
+    --color-green-8: #69db7c;
+    --color-blue-4: #4dabf7;
     --color-blue-1: #2b3240;
-    --color-orange-8: #ff922b;
+    --color-orange-8: #ffa94d;
     --color-orange-1: #4a4642;
 
     --color-success: var(--color-green-8);
-    --color-loading: var(--color-blue-8);
+    --color-loading: var(--color-blue-4);
     --color-loading-bg: var(--color-blue-1);
     --color-warning: var(--color-orange-8);
     --color-warning-bg: var(--color-orange-1);
@@ -81,6 +87,8 @@
     --color-secondary-text: var(--color-gray-6);
     --color-placeholder: #696969;
     --color-primary-filled: #f08c00;
+    --color-hover-bg: #3b3b3b;
+    --color-border: #424242;
 
     --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.45);
 
@@ -91,6 +99,14 @@
 
 a {
   color: var(--color-anchor);
+  text-decoration: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:focus-visible {
+  outline: 2px solid var(--color-primary-filled);
+  outline-offset: 0.125rem;
 }
 
 .error {
@@ -167,7 +183,7 @@ a {
   width: 16px;
   height: 16px;
   fill: none;
-  stroke: var(--color-yellow-text);
+  stroke: var(--color-yellow-light);
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -175,10 +191,6 @@ a {
 
 .icon-link.external .icon-svg {
   stroke: #15658a;
-}
-
-.link--plain {
-  text-decoration: inherit;
 }
 
 .link--external {

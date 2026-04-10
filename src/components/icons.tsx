@@ -4,22 +4,21 @@ type IconProps = JSX.SvgSVGAttributes<SVGSVGElement>;
 
 export const CheckIcon = (props: IconProps) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-    <path d="M5 12.5L10 17L19 8" />
+    <path d="M5 12l5 5l10 -10" />
   </svg>
 );
 
 export const CloseIcon = (props: IconProps) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-    <path d="M7 7L17 17" />
-    <path d="M17 7L7 17" />
+    <path d="M18 6l-12 12" />
+    <path d="M6 6l12 12" />
   </svg>
 );
 
-export const SpinnerIcon = (props: IconProps) => (
-  <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-    <circle class="status-spinner-track" cx="12" cy="12" r="8" />
-    <path class="status-spinner-head" d="M20 12a8 8 0 0 0-8-8" />
-  </svg>
+export const SpinnerIcon = (props: JSX.HTMLAttributes<HTMLSpanElement>) => (
+  <span {...props}>
+    <span class="spinner-icon"></span>
+  </span>
 );
 
 export const HelpCircleIcon = (props: IconProps) => (

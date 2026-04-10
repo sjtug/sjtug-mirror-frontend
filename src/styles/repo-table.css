@@ -105,7 +105,7 @@
   top: 0;
 }
 
-.repo-table tr:hover {
+.repo-table tbody tr:hover {
   background-color: var(--color-hover-bg);
 }
 
@@ -117,8 +117,11 @@
   text-align: left;
   vertical-align: top;
 }
-.repo-table td {
-  border-bottom: 1px solid var(--color-border);
+.repo-table thead tr {
+  border-bottom: 0.0625rem solid transparent;
+}
+.repo-table tbody tr:not(:last-child) {
+  border-bottom: 0.0625rem solid var(--color-border);
 }
 
 .repo-table .name {
@@ -179,7 +182,6 @@
 }
 
 .spinner-icon::after {
-  box-sizing: border-box;
   width: 16px;
   height: 16px;
   content: '';

@@ -1,4 +1,4 @@
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -12,7 +12,7 @@
   --color-yellow-light: #fab005;
   --color-yellow-light-hover: rgba(250,176,5,.12);
   --color-gray-text: #868e96;
-  --color-gray-1: #f8f9fa;
+  --color-gray-1: #f1f3f5;
   --color-gray-4: #ced4da;
   --color-gray-6: #868e96;
   --color-green-8: #2f9e44;
@@ -43,7 +43,7 @@
   --font-size-xxxl: 2.75rem;
   --line-height-sm: 1.45;
   --line-height-md: 1.55;
-  --line-height-lg: 1.55;
+  --line-height-lg: 1.6;
   --line-height-xl: 1.65;
 
   --radius-sm: 0.25rem;

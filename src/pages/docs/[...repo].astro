@@ -1,0 +1,97 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import DocNav from "@/components/DocNav";
+import { articlesFromHelps, getHelp } from "@/lib/serverData";
+import type { Article } from "@/types";
+import "@/styles/docs.css";
+
+const repoParam = Astro.params.repo ?? "";
+const repo = decodeURIComponent(repoParam);
+
+let articles: Article[] = [];
+let errorMessage: string | undefined;
+let content = "";
+
+try {
+  const helps = await getHelp();
+  articles = articlesFromHelps(helps);
+  const help = helps.items.find((item) => item.title === repo);
+  content = help?.content ?? "";
+} catch (error) {
+  errorMessage = error instanceof Error ? error.message : String(error);
+  console.error("Failed to fetch help feed for docs page", error);
+}
+---
+
+<BaseLayout title={`${repo} - 软件源镜像服务文档`}>
+  <div class="container docs-layout">
+    <aside class="docs-sidebar">
+      <DocNav articles={articles} currentRepo={repo} mode="desktop" client:load />
+    </aside>
+    <section class="docs-main">
+      <div class="docs-mobile">
+        <DocNav articles={articles} currentRepo={repo} mode="mobile" client:load />
+      </div>
+      {
+        errorMessage ? (
+          <p class="error">加载失败：{errorMessage}</p>
+        ) : (
+          <>
+            <h1>{repo}</h1>
+            <div class="docs-content" set:html={content} />
+          </>
+        )
+      }
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+.docs-layout {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 62em) {
+  .docs-layout {
+    grid-template-columns: minmax(10rem, 2fr) minmax(0, 10fr);
+  }
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 1.25rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  display: none;
+}
+
+@media (min-width: 62em) {
+  .docs-sidebar {
+    display: block;
+  }
+}
+
+.docs-mobile {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 8;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 62em) {
+  .docs-mobile {
+    display: none;
+  }
+}
+
+.docs-main h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 300;
+}
+</style>

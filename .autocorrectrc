@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema
+rules:
+  # Auto add spacing between CJK (Chinese, Japanese, Korean) and English words.
+  # 0 - off, 1 - error, 2 - warning
+  space-word: 1
+  # Add space between some punctuations.
+  space-punctuation: 1
+  # Add space between brackets (), [] when near the CJK.
+  space-bracket: 1
+  # Add space between ``, when near the CJK.
+  space-backticks: 1
+  # Add space between dash `-`
+  space-dash: 1
+  # Add space between dollar $ when near the CJK.
+  space-dollar: 0
+  # Convert to fullwidth.
+  fullwidth: 1
+  # To remove space near the fullwidth punctuations.
+  no-space-fullwidth: 1
+  # To remove space arouned the fullwidth quotes "", ''.
+  no-space-fullwidth-quote: 1
+  # Fullwidth alphanumeric characters to halfwidth.
+  halfwidth-word: 1
+  # Fullwidth punctuations to halfwidth in english.
+  halfwidth-punctuation: 1
+  # Spellcheck
+  spellcheck: 2
+# Enable or disable in spatial context
+context:
+  # Enable or disable to format codeblock in Markdown or AsciiDoc etc.
+  codeblock: 1
+textRules:
+spellcheck:
+  words:
+    # Project-specific terms
+    - Siyuan
+    - Zhiyuan
+    - mirrorz
+    - sjtug = SJTUG
+    - lug = LUG
+fileTypes:
+  # Astro
+  astro: html
+  # CSS
+  css: css
+  # JSON
+  json: json
+  # JavaScript / TypeScript
+  js: javascript
+  jsx: javascript
+  ts: javascript
+  tsx: javascript
+  mjs: javascript
+  cjs: javascript
+  # Markdown
+  md: markdown
+  # YAML
+  yaml: yaml
+  yml: yaml
+  # Nix
+  nix: ruby

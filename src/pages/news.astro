@@ -1,0 +1,83 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getNews, newsLocatorFromHref } from "@/lib/serverData";
+
+let errorMessage: string | undefined;
+let items: Awaited<ReturnType<typeof getNews>>["items"] = [];
+
+try {
+  const news = await getNews();
+  items = news.items;
+} catch (error) {
+  errorMessage = error instanceof Error ? error.message : String(error);
+  console.error("Failed to fetch news feed for news page", error);
+}
+---
+
+<BaseLayout title="镜像站新闻 - 上海交通大学 Linux 用户组 软件源镜像服务">
+  <div class="container news-page">
+    <h1>镜像站新闻</h1>
+    {
+      errorMessage ? (
+        <p class="error">加载失败：{errorMessage}</p>
+      ) : (
+        items.map((item) => {
+          const locator = newsLocatorFromHref(item.link ?? "");
+          return (
+            <article id={locator} class="news-card">
+              <h2>
+                <a href={`#${locator}`}>{item.title ?? "无题"}</a>
+              </h2>
+              <div class="news-content" set:html={item.content ?? "N/A"} />
+              <p class="news-divider">
+                以上新闻发布于 {new Intl.DateTimeFormat("zh-CN").format(new Date(item.isoDate ?? ""))}
+              </p>
+            </article>
+          );
+        })
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+.news-page {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.news-page h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+}
+
+.news-card {
+  margin-bottom: 2.25rem;
+}
+
+.news-card h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.news-card h2 a {
+  color: var(--color-yellow-text);
+}
+
+.news-content {
+  margin-top: 0.8rem;
+  --color-anchor: var(--color-blue-text);
+}
+
+.news-content a {
+  color: var(--color-blue-text);
+}
+
+.news-divider {
+  margin-top: 1rem;
+  color: var(--color-secondary-text);
+  font-size: var(--font-size-md);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent);
+  padding-top: 0.8rem;
+}
+</style>

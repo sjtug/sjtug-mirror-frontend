@@ -9,9 +9,9 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# astro
+/.astro/
+/dist/
 
 # production
 /build
@@ -33,4 +33,13 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# nix
+.direnv/
+.pre-commit-config.flake.yaml
+result/
+
+# next.js (for backward compatibility)
+/.next/
+/out/
 next-env.d.ts

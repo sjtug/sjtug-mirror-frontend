@@ -1,0 +1,37 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  class: className = "",
+  target = "_blank",
+  rel = "noreferrer",
+  ariaLabel,
+} = Astro.props;
+---
+
+<a class={`link--external ${className}`.trim()} href={href} target={target} rel={rel} aria-label={ariaLabel}>
+  <slot /><!--
+--><svg viewBox="0 0 24 24" class="icon-svg">
+    <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+    <path d="M11 13l9 -9"></path>
+    <path d="M15 4h5v5"></path>
+  </svg>
+</a>
+
+<style>
+.icon-svg {
+  stroke: currentColor;
+}
+
+.link--external {
+  display: inline-flex;
+  align-items: center;
+}
+</style>

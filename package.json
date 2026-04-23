@@ -10,7 +10,7 @@
     "lint": "eslint src --ext .ts,.tsx,.astro"
   },
   "dependencies": {
-    "@astrojs/node": "^10.0.4",
+    "@astrojs/node": "^10.0.5",
     "@astrojs/solid-js": "^6.0.1",
     "astro": "^6.1.1",
     "rss-parser": "^3.13.0",

@@ -3,9 +3,6 @@ import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import "@/styles/global.css";
 
-import imgIconPng from "@/assets/icon.png";
-import imgAppleIconPng from "@/assets/apple-icon.png";
-
 interface Props {
   title?: string;
   description?: string;
@@ -25,8 +22,8 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
-    <link rel="icon" href={imgIconPng.src} type="image/png" sizes="192x192">
-    <link rel="apple-touch-icon" href={imgAppleIconPng.src} type="image/png" sizes="180x180">
+    <link rel="icon" href="/icon.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="180x180">
   </head>
   <body>
     <Navbar />

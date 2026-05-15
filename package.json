@@ -28,7 +28,7 @@
     "astro-eslint-parser": "^1.4.0",
     "eslint": "^10.1.0",
     "eslint-plugin-astro": "^1.6.0",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.10",
     "postcss-custom-properties": "^15.0.1",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.9.3",

@@ -24,6 +24,7 @@ ENV PORT=${PORT}
 EXPOSE ${PORT}
 
 COPY --from=builder --chown=astro:nodejs /app/dist ./dist
+COPY --chown=astro:nodejs entrypoint.mjs ./entrypoint.mjs
 USER astro
 
-CMD ["node", "dist/server/entry.mjs"]
+CMD ["node", "entrypoint.mjs"]

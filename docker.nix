@@ -48,7 +48,7 @@ nix2container.buildImage {
   config = {
     Cmd = [
       "${lib.getExe nodejs-slim}"
-      "${frontend}/dist/server/entry.mjs"
+      "${frontend}/entrypoint.mjs"
     ];
     Env = [
       "NODE_ENV=production"

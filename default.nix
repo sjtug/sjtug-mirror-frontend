@@ -19,6 +19,7 @@ stdenv.mkDerivation (finalAttrs: {
         ./astro.config.mjs
         ./public
         ./src
+        ./entrypoint.mjs
         ./eslint.config.mjs
         ./LICENSE
         ./package.json
@@ -58,7 +59,8 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preInstall
 
     mkdir -p $out
-    cp -r dist $out/
+    cp -r dist $out
+    cp entrypoint.mjs $out
 
     runHook postInstall
   '';

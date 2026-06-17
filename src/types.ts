@@ -3,11 +3,13 @@ export interface Article {
   href: string;
 }
 
+import type { SiteName } from "@/config";
+
 export interface Repo {
   Result: boolean;
   LastFinished?: string;
   Idle: boolean;
-  server: string;
+  server: SiteName;
 }
 
 export interface RepoSummary extends Repo {

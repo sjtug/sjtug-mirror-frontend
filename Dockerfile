@@ -5,7 +5,7 @@ ENV ASTRO_TELEMETRY_DISABLED=1
 ENV ASTRO_BUNDLE_NODE_MODULES=1
 RUN corepack enable
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .

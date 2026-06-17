@@ -1,0 +1,12 @@
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+minimumReleaseAgeExclude: []
+
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - "chokidar@4.0.3"
+  - "semver@6.3.1"
+
+allowBuilds:
+  esbuild: true
+  sharp: true

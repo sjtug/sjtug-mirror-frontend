@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     importPnpmLock = {
-      url = "git+https://tangled.org/scrumplex.net/importPnpmLock.nix";
+      url = "git+https://tangled.org/scrumplex.net/importPnpmLock.nix?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix2container = {
@@ -37,7 +37,6 @@
         "x86_64-linux"
         "aarch64-linux"
         "aarch64-darwin"
-        "x86_64-darwin"
       ];
 
       perSystem =
@@ -61,8 +60,9 @@
               inputs.importPnpmLock.overlays.default
               (_final: prev: rec {
                 nodejs = prev."nodejs_${toString nodeVersion}";
+                nodejs-slim = prev."nodejs-slim_${toString nodeVersion}";
 
-                pnpm = prev."pnpm_${toString pnpmVersion}".override { inherit nodejs; };
+                pnpm = prev."pnpm_${toString pnpmVersion}".override { inherit nodejs-slim; };
               })
             ];
           };
@@ -102,7 +102,7 @@
             '';
 
             packages = with pkgs; [
-              nodejs
+              nodejs-slim
               pnpm
             ];
           };

@@ -1,4 +1,5 @@
 import { LUG_SERVERS } from "@/config";
+import type { SiteName } from "@/config";
 import { jsonFetcher } from "@/lib/fetch";
 import type { LugReport, Repo } from "@/types";
 
@@ -9,7 +10,7 @@ const cache = {
   repos: [] as RepoEntry[],
 };
 
-const fetchLugReport = async (serverName: string, url: string): Promise<RepoEntry[]> => {
+const fetchLugReport = async (serverName: SiteName, url: string): Promise<RepoEntry[]> => {
   const report = await jsonFetcher<LugReport>(url);
   return Object.entries(report.WorkerStatus).map(([name, item]) => [
     name,

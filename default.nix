@@ -24,6 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
         ./LICENSE
         ./package.json
         ./pnpm-lock.yaml
+        ./pnpm-workspace.yaml
         ./postcss.config.cjs
         ./README.md
         ./tsconfig.json

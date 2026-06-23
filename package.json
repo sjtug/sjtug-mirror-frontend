@@ -11,27 +11,27 @@
     "lint": "eslint src --ext .ts,.tsx,.astro"
   },
   "dependencies": {
-    "@astrojs/node": "^10.0.4",
-    "@astrojs/solid-js": "^6.0.1",
-    "astro": "^6.1.1",
+    "@astrojs/node": "^11.1.4",
+    "@astrojs/solid-js": "^7.0.2",
+    "astro": "^7.2.9",
     "rss-parser": "^3.13.0",
-    "solid-js": "^1.9.12",
+    "solid-js": "^1.9.15",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@eslint/eslintrc": "^3.3.5",
+    "@astrojs/check": "^0.9.10",
+    "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^10.0.1",
-    "@types/node": "^24",
-    "@typescript-eslint/eslint-plugin": "^8.57.2",
-    "@typescript-eslint/parser": "^8.57.2",
+    "@types/node": "^24.13.3",
+    "@typescript-eslint/eslint-plugin": "^8.68.0",
+    "@typescript-eslint/parser": "^8.68.0",
     "astro-eslint-parser": "^1.4.0",
-    "eslint": "^10.1.0",
-    "eslint-plugin-astro": "^1.6.0",
-    "postcss": "^8.5.8",
+    "eslint": "^10.9.1",
+    "eslint-plugin-astro": "^1.7.0",
+    "postcss": "^8.5.26",
     "postcss-custom-properties": "^15.0.1",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.2"
+    "typescript-eslint": "^8.68.0"
   }
 }

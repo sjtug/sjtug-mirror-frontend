@@ -1,6 +1,14 @@
 <section class="banner container">
   <h1 class="banner-title">稳定、快速、现代的镜像服务。</h1>
   <p class="banner-subtitle">托管于华东教育网骨干节点上海交通大学。</p>
+  <h2 class="launch-announcement-heading">
+    <marquee class="launch-announcement" behavior="alternate">
+      <a href="/news#2026-08-23-mirrorz">
+        MirrorZ 震撼发布
+        <img src="/launch-rocket.gif" width="32" height="32" alt="" />
+      </a>
+    </marquee>
+  </h2>
 </section>
 
 <style>
@@ -38,6 +46,74 @@
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.55;
+}
+
+.launch-announcement-heading {
+  margin: 0;
+}
+
+.launch-announcement {
+  display: block;
+  max-width: 45rem;
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  overflow: hidden;
+  border: 3px ridge #c0c0c0;
+  background-color: #000080;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0,
+    rgba(255, 255, 255, 0.06) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  box-shadow: 3px 3px 0 #000;
+  font-family: "Comic Sans MS", "Courier New", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+}
+
+.launch-announcement a {
+  color: #ffff00;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 #800080;
+  white-space: nowrap;
+}
+
+.launch-announcement a::before,
+.launch-announcement a::after {
+  display: inline-block;
+  margin-inline: 0.5rem;
+  color: #00ffff;
+  content: "★";
+  text-shadow: 1px 1px 0 #ff00ff;
+  animation: retro-blink 0.8s steps(2, start) infinite;
+}
+
+.launch-announcement a:hover {
+  color: #00ffff;
+  text-decoration: underline;
+}
+
+.launch-announcement img {
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+@keyframes retro-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-announcement a::before,
+  .launch-announcement a::after {
+    animation: none;
+  }
 }
 
 @media (min-width: 36em) {

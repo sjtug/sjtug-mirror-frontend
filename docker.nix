@@ -52,7 +52,7 @@ nix2container.buildImage {
     ];
     Env = [
       "NODE_ENV=production"
-      "HOST=0.0.0.0"
+      "HOST=::"
       "PORT=${toString port}"
     ]
     ++ lib.optional (site != null) "PUBLIC_SITE_NAME=${site}";

@@ -18,7 +18,7 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 astro
 
 ENV NODE_ENV=production
-ENV HOST="0.0.0.0"
+ENV HOST="::"
 ARG PORT=3000
 ENV PORT=${PORT}
 EXPOSE ${PORT}

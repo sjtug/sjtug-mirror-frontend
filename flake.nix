@@ -91,7 +91,7 @@
             zizmor.enable = true;
           };
 
-          devShells.default = pkgs.mkShell {
+          devShells.default = pkgs.mkShellNoCC {
             inputsFrom = [
               config.treefmt.build.devShell
               config.pre-commit.devShell

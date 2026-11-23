@@ -3,7 +3,7 @@ import { format, type TDate } from "timeago.js";
 import { HIDDEN, MIRRORZ_HELP, MIRRORZ_HELP_URL } from "@/config";
 import { jsonFetcher } from "@/lib/fetch";
 import type { ArticleMap, } from "@/lib/serverData";
-import type { Repo, RepoSummary } from "@/types";
+import type { Repo, RepoSummary, WorkerOutcome } from "@/types";
 import { CheckIcon, CloseIcon, HelpCircleIcon, SearchIcon, SpinnerIcon } from "@/components/icons";
 
 import "@/styles/repo-table.css";
@@ -11,8 +11,80 @@ import "@/styles/repo-table.css";
 enum RepoStatus {
   SUCCESS,
   LOADING,
+  RETRYING,
   FAILURE,
 }
+
+const isRepoSyncing = (repo: Repo): boolean =>
+  repo.State === "running" || repo.State === "stopping" || !repo.Idle;
+
+const deriveRepoStatus = (repo: Repo): RepoStatus => {
+  if (isRepoSyncing(repo)) {
+    return RepoStatus.LOADING;
+  }
+  if (repo.State === "retrying") {
+    return RepoStatus.RETRYING;
+  }
+  return repo.Result ? RepoStatus.SUCCESS : RepoStatus.FAILURE;
+};
+
+const outcomeLabel = (outcome?: WorkerOutcome): string => {
+  switch (outcome) {
+    case "success":
+      return "成功";
+    case "unknown":
+      return "状态未知";
+    default:
+      return "失败";
+  }
+};
+
+const formatDurationZh = (ms: number): string => {
+  const totalSecs = Math.max(0, Math.floor(ms / 1000));
+  const hours = Math.floor(totalSecs / 3600);
+  const mins = Math.floor((totalSecs % 3600) / 60);
+  if (hours > 0) {
+    return mins > 0 ? `${hours} 小时 ${mins} 分钟` : `${hours} 小时`;
+  }
+  if (mins > 0) {
+    return `${mins} 分钟`;
+  }
+  return `${totalSecs} 秒`;
+};
+
+const statusTitle = (repo: Repo, status: RepoStatus, now: TDate | undefined): string | undefined => {
+  const nowMs = now instanceof Date ? now.getTime() : typeof now === "number" ? now : Date.now();
+  if (status === RepoStatus.LOADING) {
+    const startedMs = repo.CurrentStartTime ? Date.parse(repo.CurrentStartTime) : Number.NaN;
+    const elapsed = !Number.isNaN(startedMs) ? `已运行 ${formatDurationZh(nowMs - startedMs)}` : "";
+    if (!repo.Result) {
+      const prev = `上次同步${outcomeLabel(repo.LastOutcome)}，正在重新同步`;
+      return elapsed ? `${prev}（${elapsed}）` : prev;
+    }
+    return elapsed ? `正在同步（${elapsed}）` : undefined;
+  }
+  if (status === RepoStatus.RETRYING) {
+    const parts = [`上次同步${outcomeLabel(repo.LastOutcome)}，等待重试`];
+    if (repo.NextRetryAt) {
+      const nextDate = new Date(repo.NextRetryAt);
+      if (!Number.isNaN(nextDate.getTime())) {
+        parts.push(`预计 ${format(nextDate, "zh_CN", { relativeDate: now })}`);
+      }
+    }
+    return parts.join(" · ");
+  }
+  if (status === RepoStatus.FAILURE) {
+    const parts = [`上次同步${outcomeLabel(repo.LastOutcome)}`];
+    if (repo.LastAttemptFinished) {
+      const attDate = new Date(repo.LastAttemptFinished);
+      if (!Number.isNaN(attDate.getTime())) {
+        parts.push(`尝试于 ${format(attDate, "zh_CN", { relativeDate: now })}`);
+      }
+    }
+    return parts.join(" · ");
+  }
+  return undefined;
+};
 
 const statusMeta = (status: RepoStatus): { text: string; className: string } => {
   switch (status) {
@@ -20,6 +92,8 @@ const statusMeta = (status: RepoStatus): { text: string; className: string } => 
       return { text: "同步成功", className: "success" };
     case RepoStatus.LOADING:
       return { text: "正在同步", className: "loading" };
+    case RepoStatus.RETRYING:
+      return { text: "等待重试", className: "retrying" };
     case RepoStatus.FAILURE:
       return { text: "同步失败", className: "failure" };
     default:
@@ -30,6 +104,9 @@ const statusMeta = (status: RepoStatus): { text: string; className: string } => 
 const StatusIcon = (props: { status: RepoStatus }) => {
   if (props.status === RepoStatus.LOADING) {
     return <SpinnerIcon class="status-icon loading" />;
+  }
+  if (props.status === RepoStatus.RETRYING) {
+    return <SpinnerIcon class="status-icon loading retrying" />;
   }
   if (props.status === RepoStatus.SUCCESS) {
     return <CheckIcon class="status-icon success" />;
@@ -162,12 +239,9 @@ const RepoTable = (props: RepoTableProps) => {
           <tbody>
             <For each={filteredRepos()}>
               {([name, repo]) => {
-                const status = repo.Result
-                  ? repo.Idle
-                    ? RepoStatus.SUCCESS
-                    : RepoStatus.LOADING
-                  : RepoStatus.FAILURE;
+                const status = deriveRepoStatus(repo);
                 const meta = statusMeta(status);
+                const tooltip = statusTitle(repo, status, lastFetch());
                 const parsedDate = new Date(repo.LastFinished ?? "");
                 const lastSync = Number.isNaN(parsedDate.getTime())
                   ? "未知"
@@ -176,7 +250,12 @@ const RepoTable = (props: RepoTableProps) => {
                 const mirrorz = MIRRORZ_HELP[name];
 
                 return (
-                  <tr classList={{ "row-loading": status === RepoStatus.LOADING, "row-failure": status === RepoStatus.FAILURE }}>
+                  <tr
+                    classList={{
+                      "row-loading": status === RepoStatus.LOADING,
+                      "row-failure": status === RepoStatus.FAILURE || status === RepoStatus.RETRYING,
+                    }}
+                  >
                     <td class="name">
                       <div>
                         <a href={name}>{name}</a>
@@ -206,7 +285,7 @@ const RepoTable = (props: RepoTableProps) => {
                     </td>
                     <td>{lastSync}</td>
                     <td>
-                      <span class={`status ${meta.className}`}>
+                      <span class={`status ${meta.className}`} title={tooltip}>
                         <StatusIcon status={status} />
                         <span class="visible-from-sm">{meta.text}</span>
                       </span>

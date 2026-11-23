@@ -5,10 +5,20 @@ export interface Article {
 
 import type { SiteName } from "@/config";
 
+export type WorkerState = "idle" | "running" | "queued" | "retrying" | "stopping";
+
+export type WorkerOutcome = "success" | "fail" | "timeout" | "canceled" | "unknown";
+
 export interface Repo {
   Result: boolean;
   LastFinished?: string;
   Idle: boolean;
+  State?: WorkerState;
+  LastOutcome?: WorkerOutcome;
+  CurrentStartTime?: string;
+  LastAttemptFinished?: string;
+  NextRetryAt?: string;
+  RedirectTarget?: string;
   server: SiteName;
 }
 

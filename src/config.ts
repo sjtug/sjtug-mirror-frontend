@@ -20,6 +20,9 @@ export const LUG_SERVERS: LugServer[] = [
   },
 ];
 
+export const FTP_SUMMARY_URL =
+  "https://ftp.sjtu.edu.cn/sisyphus/v1/manager/summary";
+
 export const HIDDEN = ["sjtug-internal"];
 
 export const NEWS_SERVER =

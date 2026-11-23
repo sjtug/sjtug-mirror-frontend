@@ -159,6 +159,7 @@
   color: var(--color-loading);
 }
 
+.status.retrying,
 .status.failure {
   color: var(--color-warning);
 }
@@ -189,7 +190,7 @@
   border-radius: 625rem;
   border-width: 0.125rem;
   border-style: solid;
-  border-color: var(--color-loading) var(--color-loading) var(--color-loading) transparent;
+  border-color: currentColor currentColor currentColor transparent;
   animation: status-spin 1.2s linear infinite;
 }
 
